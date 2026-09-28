@@ -13,3 +13,6 @@
 - World of Warcraft: Forever is in beta; level ranges and new-zone details are marked Official, Reported or To confirm on the map and may change.
 - Travel times are estimates, give or take a quarter, scaled against 291 real Classic flight durations.
 - Route links look like https://wow-travelcraft.com/#from=Orgrimmar&to=Booty%20Bay&f=horde&by=m100&fp=1 (by: foot, form, m60, m100; fp=1 for flight paths).
+
+## Addons
+- [Addons page](https://wow-travelcraft.com/addons/): Travelcraft (the same route planner inside the world map) and SameSame (sets up a new character like your main in one click), both free on CurseForge.

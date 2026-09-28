@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WoW Forever addons: Travelcraft and SameSame</title>
+<meta name="description" content="Two free addons for World of Warcraft: Forever that look and feel like part of the game. Travelcraft plans any trip from the world map. SameSame sets up a new character like your main in one click.">
+<link rel="canonical" href="https://wow-travelcraft.com/addons/">
+<meta name="theme-color" content="#0a1422">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Travelcraft">
+<meta property="og:title" content="WoW Forever addons: Travelcraft and SameSame">
+<meta property="og:description" content="Two free addons that look and feel like part of the game: plan any trip from the world map, and set up a new character like your main in one click.">
+<meta property="og:url" content="https://wow-travelcraft.com/addons/">
+<meta property="og:image" content="https://wow-travelcraft.com/addons/img/share-addons.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="WoW Forever addons: Travelcraft and SameSame">
+<meta name="twitter:description" content="Two free addons that look and feel like part of the game.">
+<meta name="twitter:image" content="https://wow-travelcraft.com/addons/img/share-addons.jpg">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"WoW Forever addons by Fistao","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Travelcraft","applicationCategory":"GameApplication","operatingSystem":"World of Warcraft: Forever","url":"https://www.curseforge.com/wow/addons/travelcraft","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"SameSame","applicationCategory":"GameApplication","operatingSystem":"World of Warcraft: Forever","url":"https://www.curseforge.com/wow/addons/samesame","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a1422; --surface:#0f1c2f; --surface-2:#15253b; --line:#22354f; --line-2:#2f4766;
+  --text:#e7eef8; --muted:#8da2bd; --accent:#3d9bff; --accent-ink:#06121f; --gold:#e0b95a; --green:#3fb27a;
+  --sans:"Hanken Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){ --bg:#eef2f7; --surface:#ffffff; --surface-2:#f3f6fa; --line:#d5dde8; --line-2:#b9c6d6;
+    --text:#0e1a2b; --muted:#566a84; --accent:#1769d1; --accent-ink:#ffffff; --gold:#8a6410; --green:#1f8a57; color-scheme:light; }
+}
+:root[data-theme="light"]{ --bg:#eef2f7; --surface:#ffffff; --surface-2:#f3f6fa; --line:#d5dde8; --line-2:#b9c6d6;
+  --text:#0e1a2b; --muted:#566a84; --accent:#1769d1; --accent-ink:#ffffff; --gold:#8a6410; --green:#1f8a57; color-scheme:light; }
+:root[data-theme="dark"]{ --bg:#0a1422; --surface:#0f1c2f; --surface-2:#15253b; --line:#22354f; --line-2:#2f4766;
+  --text:#e7eef8; --muted:#8da2bd; --accent:#3d9bff; --accent-ink:#06121f; --gold:#e0b95a; --green:#3fb27a; color-scheme:dark; }
+*{box-sizing:border-box;margin:0;padding:0}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(72px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--text);font:17px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+/* top bar, as on the map */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;display:flex;align-items:center;gap:14px;padding:12px clamp(16px,4vw,40px);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.mark{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+.mark svg{width:30px;height:30px}
+.mark .t,.mark .s{display:block}
+.mark .t{font-weight:700;font-size:17px;letter-spacing:-.01em;line-height:1.15}
+.mark .s{font-size:12.5px;color:var(--muted);line-height:1.2}
+.top .sp{flex:1}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 15px/1 var(--sans);padding:11px 16px;border-radius:9px;text-decoration:none;border:1px solid var(--line-2);color:var(--text);background:var(--surface-2);white-space:nowrap}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn svg{width:18px;height:18px}
+.btn.big{font-size:16.5px;padding:14px 20px}
+/* Support: the same button as on the map */
+.btn.kofi{background:#e0607e;border:0;color:#fff;border-radius:8px;padding:8px 14px;font-size:14px;line-height:1.45;gap:8px}
+.btn.kofi:hover{filter:brightness(1.08);border:0}
+.btn.kofi svg{width:16px;height:16px;color:#fff}
+.btn.kofi svg path{fill:currentColor}
+main{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+/* intro */
+.intro{padding:64px 0 36px;max-width:760px}
+.intro h1{font-size:clamp(34px,5vw,52px);line-height:1.05;letter-spacing:-.025em;font-weight:800;margin-bottom:18px}
+.intro p{font-size:19px;color:var(--muted);max-width:640px}
+.jump{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.jump a{display:flex;align-items:center;gap:10px;padding:8px 14px 8px 8px;border:1px solid var(--line-2);border-radius:12px;text-decoration:none;color:var(--text);background:var(--surface);font-weight:600}
+.jump a:hover{border-color:var(--accent)}
+.jump img,.jump svg{width:34px;height:34px;border-radius:8px}
+.jump small{display:block;font-weight:400;color:var(--muted);font-size:13px;line-height:1.2}
+/* way of making addons: the one quiet band of the page */
+.way{margin:26px 0 70px;padding:34px clamp(20px,3vw,40px);border-radius:16px;background:var(--surface);border:1px solid var(--line)}
+.way h2{font-size:24px;letter-spacing:-.015em;margin-bottom:6px}
+.way .sub{color:var(--muted);margin-bottom:26px;max-width:660px}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.rules h3{font-size:17px;margin-bottom:6px}
+.rules p{color:var(--muted);font-size:15.5px}
+.rules .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:var(--surface-2);border:1px solid var(--line-2);margin-bottom:12px;color:var(--gold)}
+.rules .ic svg{width:20px;height:20px}
+.sig{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:15.5px}
+.sig b{color:var(--text)}
+/* an addon */
+.addon{padding:10px 0 80px}
+.addon + .addon{border-top:1px solid var(--line);padding-top:70px}
+.head{display:flex;align-items:center;gap:18px;margin-bottom:10px}
+.head .logo{width:64px;height:64px;border-radius:15px;flex:none}
+.head .logo svg{width:64px;height:64px}
+.head h2{font-size:clamp(30px,4vw,40px);letter-spacing:-.02em;line-height:1.05;font-weight:800}
+.head .tag{color:var(--muted);font-size:17px}
+.lead{font-size:19px;max-width:720px;margin:14px 0 26px}
+.grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:40px;align-items:start}
+/* gallery */
+.gal{min-width:0}
+.gal figure{border-radius:14px;overflow:hidden;border:1px solid var(--line-2);background:#0a1422;aspect-ratio:16/9}
+.gal figure img{width:100%;height:100%;object-fit:cover}
+.gal figcaption{font-size:14.5px;color:var(--muted);margin:10px 2px 0;min-height:22px}
+.thumbs{display:flex;gap:10px;margin-top:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
+.thumbs button{flex:0 0 auto;width:118px;aspect-ratio:16/9;border-radius:8px;overflow:hidden;border:2px solid transparent;padding:0;background:none;cursor:pointer;scroll-snap-align:start;opacity:.72}
+.thumbs button:hover{opacity:1}
+.thumbs button[aria-current="true"]{border-color:var(--accent);opacity:1}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+/* facts */
+.facts{list-style:none;display:grid;gap:14px}
+.facts li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:16px}
+.facts li::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--accent);margin:8px 0 0 6px}
+.facts b{font-weight:600}
+.facts span{color:var(--muted)}
+.limit{margin-top:20px;padding:14px 16px;border-radius:10px;border:1px solid color-mix(in srgb,var(--gold) 45%,var(--line));background:color-mix(in srgb,var(--gold) 7%,var(--surface));font-size:15.5px}
+.limit b{color:var(--gold)}
+.meta{margin-top:20px;color:var(--muted);font-size:15px}
+.ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+/* foot */
+.foot{border-top:1px solid var(--line);padding:34px clamp(16px,4vw,40px) 44px;color:var(--muted);font-size:15px}
+.foot .in{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px 26px;align-items:center}
+.foot a{color:var(--text)}
+@media (max-width:900px){
+  .grid{grid-template-columns:minmax(0,1fr);gap:26px}
+  .rules{grid-template-columns:1fr;gap:20px}
+  .intro{padding-top:40px}
+  .mark .s{display:none}
+}
+@media (max-width:560px){
+  .top .btn{padding:10px 12px}
+  .top .btn.kofi{padding:9px 11px}
+  .top .btn.kofi .l{display:none}
+  .head .logo,.head .logo svg{width:52px;height:52px}
+  .thumbs button{width:96px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="mark" href="/" aria-label="Travelcraft map"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="7.5" fill="#0f1c2f" stroke="#2f4766" stroke-width="1.5"/><path d="M8.5 22.5C13 23.5 11.8 16.5 16 16.3 20.3 16.1 18.8 11.4 23 9.8" fill="none" stroke="#06121f" stroke-width="3.6" stroke-linecap="round"/><path d="M8.5 22.5C13 23.5 11.8 16.5 16 16.3 20.3 16.1 18.8 11.4 23 9.8" fill="none" stroke="#e0b95a" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="2.6 2.2"/><circle cx="8.5" cy="22.5" r="2.6" fill="#3fb27a" stroke="#06121f" stroke-width="1"/><path d="M23 13.2c-.7-1.3-2.9-2.8-2.9-5a2.9 2.9 0 015.8 0c0 2.2-2.2 3.7-2.9 5z" fill="#3d9bff" stroke="#06121f" stroke-width=".9"/><circle cx="23" cy="8.2" r="1" fill="#e7eef8"/></svg><span><span class="t">Travelcraft</span><span class="s">Map, route planner and addons for WoW Forever</span></span></a>
+  <span class="sp"></span>
+  <a class="btn kofi" href="https://ko-fi.com/fistao" target="_blank" rel="noopener" data-goatcounter-click="addons-kofi-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg><span class="l">Support</span></a>
+  <a class="btn primary" href="/" data-goatcounter-click="addons-open-map">Open the map</a>
+</header>
+<main>
+  <section class="intro">
+    <h1>Addons for WoW Forever</h1>
+    <p>Two free addons that feel like they were always part of the game. One gets you where you are going, the other gets a new character ready to play.</p>
+    <nav class="jump" aria-label="The addons">
+      <a href="#travelcraft"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="7.5" fill="#0f1c2f" stroke="#2f4766" stroke-width="1.5"/><path d="M8.5 22.5C13 23.5 11.8 16.5 16 16.3 20.3 16.1 18.8 11.4 23 9.8" fill="none" stroke="#06121f" stroke-width="3.6" stroke-linecap="round"/><path d="M8.5 22.5C13 23.5 11.8 16.5 16 16.3 20.3 16.1 18.8 11.4 23 9.8" fill="none" stroke="#e0b95a" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="2.6 2.2"/><circle cx="8.5" cy="22.5" r="2.6" fill="#3fb27a" stroke="#06121f" stroke-width="1"/><path d="M23 13.2c-.7-1.3-2.9-2.8-2.9-5a2.9 2.9 0 015.8 0c0 2.2-2.2 3.7-2.9 5z" fill="#3d9bff" stroke="#06121f" stroke-width=".9"/><circle cx="23" cy="8.2" r="1" fill="#e7eef8"/></svg><span>Travelcraft<small>Plan any trip from the world map</small></span></a>
+      <a href="#samesame"><img src="img/samesame.png" alt="" width="34" height="34"><span>SameSame<small>Your main's setup on a new character</small></span></a>
+    </nav>
+  </section>
+
+  <section class="way" aria-labelledby="way-t">
+    <h2 id="way-t">Made to feel like the game</h2>
+    <p class="sub">I build the addons I want to play with. They follow three rules.</p>
+    <div class="rules">
+      <div><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div>
+        <h3>It looks like Blizzard made it</h3><p>The game's own frames, fonts, icons and colours. If you can tell where the game ends and the addon begins, it is not finished.</p></div>
+      <div><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 00-2 2v4"/><path d="M15 3h4a2 2 0 012 2v4"/><path d="M9 21H5a2 2 0 01-2-2v-4"/><path d="M15 21h4a2 2 0 002-2v-4"/><path d="M8 12h8"/></svg></div>
+        <h3>It lives where you already look</h3><p>On the world map, next to your quests, in the game's options. No extra window to move around or keep track of.</p></div>
+      <div><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>It saves time, it doesn't play for you</h3><p>Quality of life only. The addons tell you what you need to know and set things up, then the game is yours.</p></div>
+    </div>
+    <p class="sig"><b>Fistao</b>, player since 2005, warlock at heart.</p>
+  </section>
+
+  <section class="addon" id="travelcraft" aria-labelledby="tc-t">
+    <div class="head"><div class="logo"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="7.5" fill="#0f1c2f" stroke="#2f4766" stroke-width="1.5"/><path d="M8.5 22.5C13 23.5 11.8 16.5 16 16.3 20.3 16.1 18.8 11.4 23 9.8" fill="none" stroke="#06121f" stroke-width="3.6" stroke-linecap="round"/><path d="M8.5 22.5C13 23.5 11.8 16.5 16 16.3 20.3 16.1 18.8 11.4 23 9.8" fill="none" stroke="#e0b95a" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="2.6 2.2"/><circle cx="8.5" cy="22.5" r="2.6" fill="#3fb27a" stroke="#06121f" stroke-width="1"/><path d="M23 13.2c-.7-1.3-2.9-2.8-2.9-5a2.9 2.9 0 015.8 0c0 2.2-2.2 3.7-2.9 5z" fill="#3d9bff" stroke="#06121f" stroke-width=".9"/><circle cx="23" cy="8.2" r="1" fill="#e7eef8"/></svg></div><div><h2 id="tc-t">Travelcraft</h2><div class="tag">Plan any trip from the world map</div></div></div>
+    <p class="lead">Open the world map, pick where you want to go, and see how long it takes and which way to go. The same planner as this site, inside the game.</p>
+    <div class="grid">
+      <div class="gal" data-gal>
+        <figure><img src="img/tc-plan.jpg" width="1600" height="900" alt=""></figure>
+        <figcaption></figcaption>
+        <div class="thumbs" role="list">
+          <button type="button" role="listitem" data-src="img/tc-plan.jpg" data-cap="Plan any trip from the world map, with the round button at its top left." data-alt="The Travel panel next to the world map, with a route from Orgrimmar to Razorfen Kraul" aria-label="Plan any trip from the world map, with the round button at its top left."><img src="img/tc-plan-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
+          <button type="button" role="listitem" data-src="img/tc-map.jpg" data-cap="Flight masters, harbours, zeppelins and the ways out of each zone." data-alt="The Barrens map with flight masters, a harbour and zone exit arrows" aria-label="Flight masters, harbours, zeppelins and the ways out of each zone."><img src="img/tc-map-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
+          <button type="button" role="listitem" data-src="img/tc-levels.jpg" data-cap="Zone levels on the continent maps, coloured for your character." data-alt="Eastern Kingdoms map with the level range of every zone" aria-label="Zone levels on the continent maps, coloured for your character."><img src="img/tc-levels-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
+          <button type="button" role="listitem" data-src="img/tc-follow.jpg" data-cap="The route next to your quests, with a flight timer." data-alt="The objective tracker showing a route, and a flight timer bar" aria-label="The route next to your quests, with a flight timer."><img src="img/tc-follow-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
+          <button type="button" role="listitem" data-src="img/tc-dungeons.jpg" data-cap="Dungeons for your level, and how safe the way there is." data-alt="The list of dungeons for level 14 and the route to one of them" aria-label="Dungeons for your level, and how safe the way there is."><img src="img/tc-dungeons-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
+          <button type="button" role="listitem" data-src="img/tc-flight.jpg" data-cap="A flight timer, Classic or Modern." data-alt="The two looks of the flight timer and their options" aria-label="A flight timer, Classic or Modern."><img src="img/tc-flight-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
+        </div>
+      </div>
+      <div>
+        <ul class="facts">
+          <li><div><b>Routes on the real roads</b> <span>from the Travel panel on the world map, with the time each step takes.</span></div></li>
+          <li><div><b>Tracked like a quest</b> <span>next to your objectives, with a flight timer for every flight.</span></div></li>
+          <li><div><b>Every way to travel on the map</b> <span>flight masters, harbours, zeppelins and an arrow at each way out of a zone.</span></div></li>
+          <li><div><b>Dungeons for your level</b> <span>how far each one is and how safe the way there is.</span></div></li>
+          <li><div><b>Zone levels</b> <span>on the continent maps, coloured like quests for your character.</span></div></li>
+        </ul>
+        <p class="meta">Free - English, French and Spanish</p>
+        <div class="ctas">
+          <a class="btn primary big" href="https://www.curseforge.com/wow/addons/travelcraft" target="_blank" rel="noopener" data-goatcounter-click="addons-travelcraft-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>Download on CurseForge</a>
+          <a class="btn big" href="/" data-goatcounter-click="addons-travelcraft-map">Try the planner on the map</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="addon" id="samesame" aria-labelledby="ss-t">
+    <div class="head"><img class="logo" src="img/samesame.png" width="64" height="64" alt="SameSame logo"><div><h2 id="ss-t">SameSame</h2><div class="tag">Your main's setup on every new character</div></div></div>
+    <p class="lead">Save your main's profile once. The first time you log in with a new character, one click sets it up the same way, and you are ready to play.</p>
+    <div class="grid">
+      <div class="gal" data-gal>
+        <figure><img src="img/ss-overview.jpg" width="1600" height="900" alt=""></figure>
+        <figcaption></figcaption>
+        <div class="thumbs" role="list">
+          <button type="button" role="listitem" data-src="img/ss-overview.jpg" data-cap="What SameSame copies, in three steps." data-alt="Overview of what SameSame copies" aria-label="What SameSame copies, in three steps."><img src="img/ss-overview-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
+          <button type="button" role="listitem" data-src="img/ss-save.jpg" data-cap="Step 1: save your main's profile from /same." data-alt="The SameSame options with the profile of the main character" aria-label="Step 1: save your main's profile from /same."><img src="img/ss-save-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
+          <button type="button" role="listitem" data-src="img/ss-setup.jpg" data-cap="Step 2: log in with your new character and click Set up." data-alt="The window offered to a new character" aria-label="Step 2: log in with your new character and click Set up."><img src="img/ss-setup-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
+          <button type="button" role="listitem" data-src="img/ss-ready.jpg" data-cap="Step 3: play. Spells not learned yet wait in their slot." data-alt="Action bars at level 1 and level 10 after the setup" aria-label="Step 3: play. Spells not learned yet wait in their slot."><img src="img/ss-ready-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
+        </div>
+      </div>
+      <div>
+        <ul class="facts">
+          <li><div><b>Action bars</b> <span>every slot. Spells not learned yet keep their place and appear when you learn them.</span></div></li>
+          <li><div><b>Key bindings and macros</b> <span>addon key bindings included.</span></div></li>
+          <li><div><b>Edit Mode layout</b> <span>where your bars, frames and windows sit.</span></div></li>
+          <li><div><b>Chat windows and interface options</b> <span>tabs, colours, loot, nameplates, camera, scale.</span></div></li>
+          <li><div><b>Enabled addons</b> <span>the same addons are turned on.</span></div></li>
+        </ul>
+        <p class="limit"><b>What it can't copy:</b> the settings of your other addons. Each addon keeps them in its own way, so SameSame turns the same addons on, but they keep their own settings.</p>
+        <p class="meta">Free - English and French - Undo anytime from /same</p>
+        <div class="ctas">
+          <a class="btn primary big" href="https://www.curseforge.com/wow/addons/samesame" target="_blank" rel="noopener" data-goatcounter-click="addons-samesame-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>Download on CurseForge</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="foot"><div class="in">
+  <span>Made by Fistao for World of Warcraft: Forever. Not affiliated with Blizzard Entertainment.</span>
+  <a href="https://ko-fi.com/fistao" target="_blank" rel="noopener" data-goatcounter-click="addons-kofi-foot">Support on Ko-fi</a>
+  <a href="https://tally.so/r/RGp5WQ?version=addons-page&amp;device=web" target="_blank" rel="noopener" data-goatcounter-click="addons-feedback">Report a problem or suggest something</a>
+  <a href="/">Back to the map</a>
+</div></footer>
+<script>
+// Galleries: a click on a thumbnail shows it large, with its caption
+document.querySelectorAll("[data-gal]").forEach(g=>{
+  const big=g.querySelector("figure img"), cap=g.querySelector("figcaption"), btns=[...g.querySelectorAll(".thumbs button")];
+  const show=b=>{ btns.forEach(x=>x.setAttribute("aria-current",x===b?"true":"false")); big.src=b.dataset.src; big.alt=b.dataset.alt; cap.textContent=b.dataset.cap; };
+  btns.forEach(b=>b.addEventListener("click",()=>show(b)));
+  if(btns[0]) show(btns[0]);
+});
+</script>
+<script data-goatcounter="https://benjamhu.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

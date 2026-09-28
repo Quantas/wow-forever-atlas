@@ -77,6 +77,7 @@ button,input{font:inherit;color:inherit}
 .results .empty{padding:10px 12px;color:var(--muted)}
 .cta{flex:none;display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;padding:8px 14px;font-weight:600;font-size:14px;cursor:pointer}
 .cta svg{width:16px;height:16px}
+a.cta,a.ac-b{text-decoration:none}
 .cta:hover{filter:brightness(1.08)}
 .tools{display:flex;align-items:center;gap:14px;margin-left:auto;flex-wrap:wrap;justify-content:flex-end}
 .lvl{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:14px}
@@ -465,7 +466,7 @@ details.fine p{font-size:13px;color:var(--muted);margin:8px 0 0}
     <div class="results" id="results" role="listbox"></div>
   </div>
   <button class="cta" id="planCta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 18H15a3.5 3.5 0 000-7H9a3.5 3.5 0 010-7h6.5"/></svg>Plan a route</button>
-  <button class="cta addon" id="addonCta" data-gc="addon-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>Get the addon<span class="soon" id="addonSoon">Soon</span></button>
+  <a class="cta addon" id="addonCta" href="/addons/" data-gc="addon-header" title="Travelcraft and SameSame, free addons for WoW Forever"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>Addons</a>
   <button class="cta about" id="aboutCta" data-gc="about-header" title="About Travelcraft, sources and patch notes" aria-label="About Travelcraft"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 7.5h.01"/></svg><span class="lbl">About</span></button>
   <a class="cta kofi" id="kofiCta" href="https://ko-fi.com/fistao" target="_blank" rel="noopener" data-gc="kofi-header" title="Support Travelcraft on Ko-fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg><span class="kl">Support</span></a>
   <div class="tools">
@@ -1033,7 +1034,8 @@ const CHANGELOG = [
   { v: "4.17", d: "September 28, 2026", title: "Transport updates from the beta files", items: [
     ["fix", "Zephras Isle, Horde: the zeppelin lands on Skywatcher Plateau in the north-west of Mulgore, a short walk from Thunder Bluff."],
     ["fix", "The Menethil, Southshore and Auberdine boat sails one way round: from Menethil it calls at Southshore first, from Auberdine it goes straight to Menethil. Routes now use it only in that direction."],
-    ["fix", "Riverglades flight points: Rog'mar also links to Kargath and Flame Crest, Farholde Keep to Powderfuse Port. Powderfuse has no Horde flight yet in the beta files."]] },
+    ["fix", "Riverglades flight points: Rog'mar also links to Kargath and Flame Crest, Farholde Keep to Powderfuse Port. Powderfuse has no Horde flight yet in the beta files."],
+    ["new", "A new Addons page, reached from the top bar: Travelcraft and SameSame, with screenshots and download links."]] },
   { v: "4.16", d: "September 26, 2026", title: "Find route shows what is missing", items: [
     ["fix", "Press Find route with a place still empty, after Route to here or Route from here for example, and the empty field gives a small shake, lights up and asks for what it needs."]] },
   { v: "4.15", d: "September 26, 2026", title: "Clear route, easier to find", items: [
@@ -1352,10 +1354,11 @@ function renderRoute(r){ const stops=[r.from,...(r.stops||[]),r.to];
 function addonGet(src){ return ADDON_LIVE
   ? `<a class="get" href="${ADDON_URL}" target="_blank" rel="noopener" data-gc="addon-download-${src}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>Download on CurseForge</a>`
   : `<div class="get waiting" data-gc="addon-soon-${src}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>Coming soon on CurseForge</div>`; }
-function addonCard(src){ return `<div class="addoncard"><div style="flex:1"><div class="ac-t">Take your routes into the game</div><div class="ac-s">The Travelcraft addon plans the same trips inside the world map${ADDON_LIVE?".":", coming soon."}</div></div><button class="ac-b" data-tabgo="addon" data-gc="addon-card-${src}">${ADDON_LIVE?"Get it":"See it"}</button></div>`; }
+function addonCard(src){ return `<div class="addoncard"><div style="flex:1"><div class="ac-t">Take your routes into the game</div><div class="ac-s">The Travelcraft addon plans the same trips inside the world map${ADDON_LIVE?".":", coming soon."}</div></div><a class="ac-b" href="/addons/#travelcraft" data-gc="addon-card-${src}">${ADDON_LIVE?"Get it":"See it"}</a></div>`; }
 function renderAddon(){ sheet.innerHTML=`<button class="back" data-tabgo="plan">\u2190 Route planner</button><h1>Travelcraft in game</h1>
    <p class="lead">The same route planner, inside your world map. Pick where you are going, see every step and how long it takes, and follow it next to your quests.</p>
    ${addonGet("page")}
+   <p class="getnote"><a href="/addons/" data-gc="addons-from-addon-tab">All my addons, with screenshots: Travelcraft and SameSame</a></p>
    <p class="getnote">${ADDON_LIVE?"Free, and open to everyone.":"The addon is being reviewed by CurseForge. This button becomes the download link as soon as it is approved."}</p>
    <img class="shot" src="addon-panel.jpg" alt="Illustration of the Travel panel inside the world map: a route from Undercity to Booty Bay, its steps and travel time" loading="lazy">
    <p class="shotcap">Illustration: the Travel panel opens where the quest log usually is.</p>
@@ -1380,7 +1383,7 @@ function renderAbout(){
 
    <div class="ab-group"><div class="ab-label">Travelcraft</div><div class="ab-card">
    ${sec("addon","The in-game addon",ADDON_LIVE?"The same planner inside the game, on CurseForge":"Coming soon on CurseForge",
-     `<p>Travelcraft is also an addon for World of Warcraft: Forever, ${ADDON_LIVE?`available on <a href="${ADDON_URL}" target="_blank" rel="noopener" data-gc="addon-about">CurseForge</a>`:"coming very soon on CurseForge"}. It runs the same planner on the same data as this map. In game it measures walking on the real ground, so its times can differ a little from this map. <button class="linkish" data-tabgo="addon" data-gc="addon-about-more">More about the addon</button></p><ul class="facts"><li>Open the world map and click the round button under the map legend: the Travel panel opens where the quest log usually is.</li><li>Pick a start and a destination from the menus, type a name, or hold Ctrl and click the map.</li><li>Choose how you travel. Flights use the flight masters your character has discovered, or all of them, or none.</li><li>Click Track route to follow the steps next to your quests. They update as you move.</li></ul><p>The addon draws on the game's own maps, so its routes line up with what you see in game. It is in English, French and Spanish.</p>`)}
+     `<p>Travelcraft is also an addon for World of Warcraft: Forever, ${ADDON_LIVE?`available on <a href="${ADDON_URL}" target="_blank" rel="noopener" data-gc="addon-about">CurseForge</a>`:"coming very soon on CurseForge"}. It runs the same planner on the same data as this map. In game it measures walking on the real ground, so its times can differ a little from this map. <button class="linkish" data-tabgo="addon" data-gc="addon-about-more">More about the addon</button> My other addon, SameSame, sets up a new character like your main: <a href="/addons/" data-gc="addons-about">see both addons</a>.</p><ul class="facts"><li>Open the world map and click the round button under the map legend: the Travel panel opens where the quest log usually is.</li><li>Pick a start and a destination from the menus, type a name, or hold Ctrl and click the map.</li><li>Choose how you travel. Flights use the flight masters your character has discovered, or all of them, or none.</li><li>Click Track route to follow the steps next to your quests. They update as you move.</li></ul><p>The addon draws on the game's own maps, so its routes line up with what you see in game. It is in English, French and Spanish.</p>`)}
    ${sec("guide","Text guide","Every zone, ship and travel time on one page",
      `<p>Every zone with its level range, the new zones and dungeons, all ships and zeppelins, and travel times between major cities, on one page: <a href="guide.html">WoW Forever guide</a>.</p>`)}
    ${sec("feedback","Report a problem or suggest something","Every report is read",
@@ -1710,8 +1713,6 @@ $("#zin").onclick=()=>zoomAt(1.6,wrap.clientWidth/2,wrap.clientHeight/2,true);
 $("#zout").onclick=()=>zoomAt(1/1.6,wrap.clientWidth/2,wrap.clientHeight/2,true);
 $("#zfit").onclick=()=>fitAll(true);
 $("#planCta").onclick=()=>{state.tab="plan";clearMarks();state.sel=null;render();drawPlan();paint();restyle();const f=$("#planFrom");if(f&&!plan.from)f.focus();};
-$("#addonCta").onclick=()=>{state.tab="addon";clearMarks();state.sel=null;render();drawPlan();paint();restyle();syncHash();};
-if(ADDON_LIVE) $("#addonSoon").remove();
 /* Count clicks on the addon buttons in GoatCounter (buttons are drawn after the counter loads, so count by hand) */
 document.addEventListener("click",e=>{ const t=e.target.closest("[data-gc]"); if(t&&window.goatcounter&&window.goatcounter.count) window.goatcounter.count({path:t.dataset.gc,title:t.textContent.trim().slice(0,60),event:true}); });
 $("#ver").textContent="v"+CHANGELOG[0].v;
