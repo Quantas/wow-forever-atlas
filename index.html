@@ -747,7 +747,7 @@ const ZONES = {
       { t: "Designed as a self-contained experience: developers said players will not be sent back for a raid.", c: "r" },
       { t: "The isle lies in the elemental plane of Skywall. Its position on this map is symbolic.", c: "o" },
       { t: "Alliance way out: a skyship from Valanaar, in the south of the isle, to Dalaran, then the Skyborne portal in the Violet Citadel to the Mage Tower in Stormwind, and back the same way. Seen on the beta.", c: "r" },
-      { t: "Horde way out: a zeppelin from the isle to Thunder Bluff, seen on the beta. No portal onward to Orgrimmar was seen on arrival.", c: "r" },
+      { t: "Horde way out: a zeppelin from the isle to Skywatcher Plateau in the north-west of Mulgore, a short walk from Thunder Bluff (Reported). No portal onward to Orgrimmar was seen on arrival.", c: "r" },
       { t: "Players report that only Skyborne can take the Skyborne portal in Stormwind; other races are turned away. The planner uses these Skyborne links only for trips to or from Zephras Isle.", c: "r" }] },
 };
 
@@ -757,7 +757,8 @@ const POIS = [
   // Cities
   { id: "darnassus", n: "Darnassus", t: "city", z: "teldrassil", k: [27.5, -8.5], f: "alliance", d: "Night elf capital in the boughs of Teldrassil.", c: "c" },
   { id: "orgrimmar", n: "Orgrimmar", t: "city", z: "durotar", k: [72.6, 41.6], f: "horde", d: "Horde capital, named for Orgrim Doomhammer. Zeppelin towers stand outside the gates.", c: "c", fp: "horde" },
-  { id: "thunderbluff", n: "Thunder Bluff", t: "city", z: "mulgore", k: [41.5, 57.8], f: "horde", d: "Tauren capital on the mesas of northern Mulgore. In Forever, a zeppelin links it to Zephras Isle for Horde Skyborne.", c: "c", fp: "horde" },
+  { id: "thunderbluff", n: "Thunder Bluff", t: "city", z: "mulgore", k: [41.5, 57.8], f: "horde", d: "Tauren capital on the mesas of northern Mulgore. In Forever, a zeppelin from Zephras Isle lands on Skywatcher Plateau, a short walk away for Horde Skyborne.", c: "c", fp: "horde" },
+  { id: "skywatcher", n: "Skywatcher Plateau", t: "zep", z: "mulgore", k: [39.9, 56.1], f: "horde", isNew: true, d: "Zeppelin dock in the north-west of Mulgore, near Thunder Bluff, for the zeppelin from Zephras Isle (Horde Skyborne). Position estimated.", c: "r" },
   { id: "stormwind", n: "Stormwind City", t: "city", z: "elwynn", e: [38.2, 70.6], f: "alliance", d: "Human capital. In Forever it gains a harbor with a ship to Auberdine.", c: "c", fp: "alliance" },
   { id: "ironforge", n: "Ironforge", t: "city", z: "dunmorogh", e: [52.5, 53.4], f: "alliance", d: "Dwarven capital carved into the mountain. The Deeprun Tram links it to Stormwind.", c: "c", fp: "alliance" },
   { id: "undercity", n: "Undercity", t: "city", z: "tirisfal", e: [45, 15.8], f: "horde", d: "Forsaken capital in the sewers beneath the ruins of Lordaeron.", c: "c", fp: "horde" },
@@ -768,7 +769,7 @@ const POIS = [
   { id: "auberdine", n: "Auberdine", t: "port", z: "darkshore", k: [28.5, 14.6], f: "alliance", d: "Night elf harbor town. Two ships in Classic, to Menethil Harbor and to Rut'theran Village, plus two new lines in Forever: Stormwind Harbor, and Menethil by way of Southshore.", c: "c", fp: "alliance" },
   { id: "ratchet", n: "Ratchet", t: "port", z: "barrens", k: [70.6, 58.3], f: "neutral", d: "Steamwheedle Cartel port with the boat to Booty Bay.", c: "c", fp: "both" },
   { id: "theramore", n: "Theramore Isle", t: "port", z: "dustwallow", k: [79.3, 66.5], f: "alliance", d: "Jaina Proudmoore's island city. Boat to Menethil Harbor.", c: "c", fp: "alliance" },
-  { id: "valanaar", n: "Valanaar", t: "sky", z: "zephras", a: [1242, 204], f: "neutral", isNew: true, d: "Skyborne city in the south of Zephras Isle. A skyship flies to Dalaran for the Alliance and a zeppelin to Thunder Bluff for the Horde. The exact Horde departure point is not documented. Position on this map is symbolic.", c: "r" },
+  { id: "valanaar", n: "Valanaar", t: "sky", z: "zephras", a: [1242, 204], f: "neutral", isNew: true, d: "Skyborne city in the south of Zephras Isle. A skyship flies to Dalaran for the Alliance and a zeppelin to Skywatcher Plateau in Mulgore for the Horde. Position on this map is symbolic.", c: "r" },
   { id: "steamwheedle", n: "Steamwheedle Port", t: "port", z: "tanaris", k: [78.7, 86.0], f: "neutral", isNew: true, d: "Goblin port on the Tanaris coast. In Forever, the departure point of the new route to the Riverglades.", c: "o" },
   { id: "feathermoon", n: "Feathermoon Stronghold", t: "port", z: "feralas", k: [5.8, 75.7], f: "alliance", d: "Night elf stronghold on the northern shore of Sardor Isle, the northern of the two islands off the Feralas coast.", c: "c", fp: "alliance" },
   { n: "Isle of Dread", t: "area", z: "feralas", k: [4.2, 80.4], d: "The southern island off Feralas, overrun by naga. No dock, no ferry: night elves on Sardor Isle watch it from across the water.", c: "c" },
@@ -778,9 +779,9 @@ const POIS = [
   { id: "southshore", n: "Southshore", t: "port", z: "hillsbrad", e: [48.4, 33.9], f: "alliance", isNew: true, d: "Alliance fishing town. In Forever it is a stop on the Menethil to Auberdine route.", c: "o", fp: "alliance" },
   { id: "swharbor", n: "Stormwind Harbor", t: "port", z: "elwynn", e: [35.4, 69.8], f: "alliance", isNew: true, d: "New in Forever. Ship to Auberdine.", c: "o" },
   { id: "bootybay", n: "Booty Bay", t: "port", z: "stv", e: [50.0, 98.1], f: "neutral", d: "Pirate-flavored goblin port at the southern tip of Stranglethorn. Boat to Ratchet.", c: "c", fp: "both" },
-  { id: "powderfuse", n: "Powderfuse Port", t: "port", z: "riverglades", e: [98.1, 73.6], f: "neutral", isNew: true, d: "Neutral goblin port of the Powderfuse goblins. Ship to Steamwheedle Port in Tanaris, and a flight point in the beta client. Exact position to be confirmed.", c: "t", fp: "both" },
-  { id: "farholde", n: "Farholde Keep", t: "town", z: "riverglades", e: [87.5, 76.4], f: "alliance", isNew: true, d: "Alliance hold of the Riverglades and the faction's flight point there. The beta client links it to Lakeshire, Morgan's Vigil and Thelsamar. Position estimated.", c: "r", fp: "alliance" },
-  { id: "rogmar", n: "Rog'mar", t: "town", z: "riverglades", e: [92.6, 67.4], f: "horde", isNew: true, d: "Horde settlement of the Riverglades and the faction's flight point there. The beta client links it to Stonard and Hammerfall. Position estimated.", c: "r", fp: "horde" },
+  { id: "powderfuse", n: "Powderfuse Port", t: "port", z: "riverglades", e: [98.1, 73.6], f: "neutral", isNew: true, d: "Neutral goblin port of the Powderfuse goblins. Ship to Steamwheedle Port in Tanaris, open to both factions. Its flight point only links to Farholde Keep (Alliance) in the beta files: no Horde flight yet, to be confirmed. Exact position to be confirmed.", c: "t", fp: "alliance" },
+  { id: "farholde", n: "Farholde Keep", t: "town", z: "riverglades", e: [87.5, 76.4], f: "alliance", isNew: true, d: "Alliance hold of the Riverglades and the faction's flight point there. The beta client links it to Lakeshire, Morgan's Vigil, Thelsamar and Powderfuse Port. Position estimated.", c: "r", fp: "alliance" },
+  { id: "rogmar", n: "Rog'mar", t: "town", z: "riverglades", e: [92.6, 67.4], f: "horde", isNew: true, d: "Horde settlement of the Riverglades and the faction's flight point there. The beta client links it to Stonard, Hammerfall, Kargath and Flame Crest. Position estimated.", c: "r", fp: "horde" },
   { n: "Sunnyglade", t: "area", z: "riverglades", e: [91.0, 75.2], isNew: true, d: "Farming town of Stormwind burned by the Old Horde in the First War, rebuilt by freed peasants. Position estimated.", c: "r" },
   { n: "Bolder'ok", t: "area", z: "riverglades", e: [94.4, 70.0], isNew: true, d: "Settlement of the Bolder'ok ogre clan. Position estimated.", c: "r" },
   { id: "eternity", n: "Summit of Eternity", t: "town", z: "hyjal", k: [65.6, 22.8], isNew: true, d: "Flight point on Mount Hyjal in the beta client. Which faction it serves, and its position, are unknown.", c: "t", fp: "both" },
@@ -899,10 +900,10 @@ const POIS = [
 
 // ---- Travel routes. via = absolute sea waypoints between the two endpoints
 const ROUTES = [
-  { id: "r-men-aub", kind: "boat", f: "alliance", from: "menethil", to: "auberdine", isNew: false, c: "c",
-    note: "Classic route. Forever adds a Menethil, Southshore, Auberdine line; whether this direct boat stays alongside it is not confirmed.",
-    via: [[1650, 700], [1540, 725], [1400, 660], [1350, 500], [1180, 340], [960, 215], [700, 140], [520, 192], [440, 226], [386, 254], [338, 306]] },
-  { id: "r-men-the", kind: "boat", f: "alliance", from: "menethil", to: "theramore", isNew: false, c: "c", note: "Classic route.",
+  { id: "r-aub-men", kind: "boat", f: "alliance", from: "auberdine", to: "menethil", oneway: true, isNew: true, c: "r",
+    note: "In Forever, the Menethil, Southshore, Auberdine line sails one way round: from Auberdine the ship goes straight to Menethil Harbor.",
+    via: [[338, 306], [386, 254], [440, 226], [520, 192], [700, 140], [960, 215], [1180, 340], [1350, 500], [1400, 660], [1540, 725], [1650, 700]] },
+  { id: "r-men-the", kind: "boat", f: "alliance", from: "menethil", to: "theramore", isNew: false, c: "c", note: "Classic route, still in the beta files alongside the new Menethil line.",
     via: [[1660, 700], [1590, 725], [1530, 790], [1300, 930], [960, 1040], [830, 1050]] },
   { id: "r-aub-rut", kind: "boat", f: "alliance", from: "auberdine", to: "rutheran", isNew: false, c: "c", note: "Classic route to Teldrassil.",
     via: [[322, 330], [350, 250]] },
@@ -912,8 +913,8 @@ const ROUTES = [
   { id: "r-sw-aub", kind: "boat", f: "alliance", from: "swharbor", to: "auberdine", isNew: true, c: "o",
     note: "New in Forever: an early path between the Eastern Kingdoms and Kalimdor for Alliance levelers. Sea lane drawn here is illustrative.",
     via: [[1500, 1000], [1330, 800], [1240, 560], [1130, 380], [960, 240], [700, 160], [526, 202], [446, 234], [392, 262], [346, 312]] },
-  { id: "r-men-sou-aub", kind: "boat", f: "alliance", from: "menethil", to: "auberdine", stops: ["southshore"], isNew: true, c: "o",
-    note: "New in Forever: Menethil Harbor, Southshore and Auberdine on one line, for more leveling flexibility. Stop order and direction are not detailed yet.",
+  { id: "r-men-sou-aub", kind: "boat", f: "alliance", from: "menethil", to: "auberdine", stops: ["southshore"], oneway: true, isNew: true, c: "o",
+    note: "New in Forever: Menethil Harbor, Southshore and Auberdine on one line. It sails one way round: from Menethil the ship calls at Southshore before Auberdine, and from Auberdine it goes straight back to Menethil (Reported).",
     via: [[1700, 640], "southshore", [1690, 590], [1600, 690], [1500, 690], [1440, 620], [1425, 520], [1410, 400], [1300, 300], [1120, 262], [900, 178], [700, 120], [514, 182], [434, 218], [380, 246], [330, 300]] },
   { id: "r-ste-pow", kind: "boat", f: "neutral", from: "steamwheedle", to: "powderfuse", isNew: true, c: "o",
     note: "New in Forever: the Steamwheedle route to Powderfuse Port, open to Horde and Alliance. Sea lane and port position are illustrative.",
@@ -924,8 +925,8 @@ const ROUTES = [
   { id: "r-val-dal", kind: "sky", f: "alliance", skyborne: true, from: "valanaar", to: "dalaran", isNew: true, c: "r",
     note: "New in Forever: the High Order skyship between Zephras Isle and Dalaran, seen on the beta. Made for Alliance Skyborne. The isle floats in Skywall, so this sky lane is symbolic.",
     via: [[1330, 262], [1500, 330]] },
-  { id: "r-val-tb", kind: "zep", f: "horde", skyborne: true, from: "valanaar", to: "thunderbluff", isNew: true, c: "r",
-    note: "New in Forever: the Windshaper zeppelin between Zephras Isle and Thunder Bluff, seen on the beta. Made for Horde Skyborne. Where it docks on the isle is not documented, and the isle floats in Skywall, so this sky lane is symbolic.",
+  { id: "r-val-sky", kind: "zep", f: "horde", skyborne: true, from: "valanaar", to: "skywatcher", isNew: true, c: "r",
+    note: "New in Forever: the zeppelin between Zephras Isle and Skywatcher Plateau, in the north-west of Mulgore, a short walk from Thunder Bluff. Made for Horde Skyborne. The isle floats in Skywall, so this sky lane is symbolic.",
     via: [[1100, 330], [800, 560], [600, 790]] },
   { id: "r-dal-sw", kind: "portal", f: "alliance", skyborne: true, from: "dalaran", to: "stormwind", isNew: true, c: "r",
     note: "New in Forever: the Skyborne portals between the Violet Citadel in Dalaran and the Mage Tower in Stormwind, set up by the Kirin Tor for the High Order. Seen on the beta in both directions. Players report that only Skyborne can use them.",
@@ -945,7 +946,8 @@ const SOURCES = [
   ["Guided: ship routes and Grim Batol", "https://guided.news/en/news/wow-forever-everglades-with-200-quests-new-ship-routes-and-a-mystery-at-grim-batol/"],
   ["Warcraft Wiki: World of Warcraft: Forever", "https://warcraft.wiki.gg/wiki/World_of_Warcraft:_Forever"],
   ["Warcraft Tavern: from Zephras Isle to Ironforge (skyship and portal)", "https://www.warcrafttavern.com/forever/guides/how-to-get-to-ironforge-from-the-zephras-isle/"],
-  ["Beta video: Horde Skyborne zeppelin from Zephras Isle to Thunder Bluff", "https://youtu.be/rvSuSkz5qlU"],
+  ["Beta video: Horde Skyborne zeppelin from Zephras Isle", "https://youtu.be/rvSuSkz5qlU"],
+  ["classicwowforever.com: flight paths, boats and zeppelins, from the beta client files (Sept. 27)", "https://classicwowforever.com/boats-and-zeppelins/"],
   ["Wowhead: Welcome to Azeroth, the High Order quest through the Skyborne portal", "https://www.wowhead.com/forever/quest=94947/welcome-to-azeroth"],
   ["InFlight addon: community-measured Classic flight times", "https://github.com/BLCtbc/inflight"],
   ["Warcraft Wiki: the Riverglades (beta patch 1.60.1)", "https://warcraft.wiki.gg/wiki/Riverglades"],
@@ -1028,6 +1030,10 @@ const KOFI_URL = "https://ko-fi.com/fistao";
    If the Tally script is not loaded yet, the link opens the same form in a new tab, with the same fields in its address. */
 const FEEDBACK_FORM = "RGp5WQ";
 const CHANGELOG = [
+  { v: "4.17", d: "September 28, 2026", title: "Transport updates from the beta files", items: [
+    ["fix", "Zephras Isle, Horde: the zeppelin lands on Skywatcher Plateau in the north-west of Mulgore, a short walk from Thunder Bluff."],
+    ["fix", "The Menethil, Southshore and Auberdine boat sails one way round: from Menethil it calls at Southshore first, from Auberdine it goes straight to Menethil. Routes now use it only in that direction."],
+    ["fix", "Riverglades flight points: Rog'mar also links to Kargath and Flame Crest, Farholde Keep to Powderfuse Port. Powderfuse has no Horde flight yet in the beta files."]] },
   { v: "4.16", d: "September 26, 2026", title: "Find route shows what is missing", items: [
     ["fix", "Press Find route with a place still empty, after Route to here or Route from here for example, and the empty field gives a small shake, lights up and asks for what it needs."]] },
   { v: "4.15", d: "September 26, 2026", title: "Clear route, easier to find", items: [
@@ -1456,6 +1462,7 @@ const EXAMPLES=[["Darnassus","Ironforge","alliance"],["Orgrimmar","Riverglades",
 
 const SEA_PEN=240; /* seconds added, for route choice only, each time a ship or zeppelin changes continent: a sea detour has to beat the land route even with the longest waits (was 420 until 4.12) */
 function buildGraph(f,strict,landK,seaPen){ const A={}; const add=(a,b,w,e)=>{(A[a]=A[a]||[]).push({to:b,w,e});(A[b]=A[b]||[]).push({to:a,w,e});};
+  const addOne=(a,b,w,e)=>{(A[a]=A[a]||[]).push({to:b,w,e});A[b]=A[b]||[];};
   const S=spu();
   LAND_EDGES.forEach(([a,b,via,c,note])=>{ const g=GATES[a+"|"+b]||zc(b); add("z:"+a,"z:"+b,(dist(zc(a),g)*spuZ(a)+dist(g,zc(b))*spuZ(b))*landK,{k:"land",a,b,via,c,note}); });
   NODE_POIS.forEach(p=>{ if(p.id!=="feathermoon") add("p:"+p.id,"z:"+p.z,Math.max(30,dist(p.xy,zc(p.z))*spuZ(p.z)*.6),{k:"in"}); }); /* Feathermoon sits on an island: ferry only */
@@ -1468,7 +1475,7 @@ function buildGraph(f,strict,landK,seaPen){ const A={}; const add=(a,b,w,e)=>{(A
     add("p:"+list[i].id,"p:"+list[j].id,Math.max(20,dist(list[i].xy,list[j].xy)*spuZ(list[i].z)*landK),{k:"in"}); });
   if(plan.fp){ const fm=POIS.filter(p=>p.fp&&(p.fp==="both"||p.fp===f)); for(let i=0;i<fm.length;i++) for(let j=i+1;j<fm.length;j++) if(contOf(fm[i])===contOf(fm[j])){ const ft=flightTime(f,fm[i],fm[j]); add("p:"+fm[i].id,"p:"+fm[j].id,ft.sec+25,{k:"fly",ft}); } }
   ROUTES.forEach(r=>{ const ok=r.f==="neutral"||r.f===f; if(strict&&!ok) return; if(r.skyborne&&(!ok||!plan.sky)) return; /* Skyborne-only links: used only for trips to or from Zephras Isle, where the traveler must be a Skyborne */ const stops=[r.from,...(r.stops||[]),r.to];
-    for(let i=0;i<stops.length-1;i++) { const rd=rideOf(r), cross=contOf(POI[stops[i]])!==contOf(POI[stops[i+1]]); add("p:"+stops[i],"p:"+stops[i+1],rd[0]+(rd[1]+rd[2])/2+(ok?0:1800)+(cross&&seaPen?SEA_PEN:0),{k:"ride",r,ok,cross}); } });
+    for(let i=0;i<stops.length-1;i++) { const rd=rideOf(r), cross=contOf(POI[stops[i]])!==contOf(POI[stops[i+1]]); (r.oneway?addOne:add)("p:"+stops[i],"p:"+stops[i+1],rd[0]+(rd[1]+rd[2])/2+(ok?0:1800)+(cross&&seaPen?SEA_PEN:0),{k:"ride",r,ok,cross}); } });
   return A; }
 /* Route choice only: a zone well above the traveller's level costs time, so a low-level
    character is sent the long way round. Gap = the zone's lowest level minus (level + 3):
