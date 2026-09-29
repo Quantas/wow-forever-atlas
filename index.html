@@ -856,7 +856,7 @@ const POIS = [
 
   // Classic dungeons
   { n: "Ragefire Chasm", t: "dungeon", z: "durotar", k: [70.8, 43.4], lv: [13, 18], d: "Beneath Orgrimmar.", c: "c" },
-  { n: "Wailing Caverns", t: "dungeon", z: "barrens", k: [50.5, 53], lv: [17, 24], c: "c" },
+  { n: "Wailing Caverns", t: "dungeon", z: "barrens", k: [50.5, 53], lv: [15, 24], c: "c" },
   { n: "Blackfathom Deeps", t: "dungeon", z: "ashenvale", k: [27.4, 33.6], lv: [24, 32], c: "c" },
   { n: "Razorfen Kraul", t: "dungeon", z: "barrens", k: [51, 70], lv: [29, 38], c: "c" },
   { n: "Razorfen Downs", t: "dungeon", z: "barrens", k: [56.6, 71.6], lv: [37, 46], d: "Shen'dralas quests reportedly tie in here.", c: "c" },
@@ -880,8 +880,8 @@ const POIS = [
   { n: "Naxxramas", t: "raid", z: "epl", e: [80.5, 12.6], lv: [60, 60], d: "40 players in Classic. Not open at launch; schedule not announced.", c: "r" },
 
   // New dungeons and raids
-  { n: "Hall of Thanes", t: "dungeon", z: "dunmorogh", e: [51.6, 55.6], lv: [13, 18], isNew: true, d: "Beneath Ironforge: intruders have disturbed the tombs of the dwarven kings. Alliance-leaning counterpart to Ragefire Chasm; Horde groups can reportedly enter.", c: "o" },
-  { n: "Ruins of Lordaeron", t: "dungeon", z: "tirisfal", e: [44, 13.8], lv: [15, 20], isNew: true, d: "Help the Forsaken reclaim the ruined capital above the Undercity. Horde-leaning; Alliance groups need more cunning to reach it.", c: "o" },
+  { n: "Hall of Thanes", t: "dungeon", z: "dunmorogh", e: [51.6, 55.6], lv: [13, 20], isNew: true, d: "Beneath Ironforge: intruders have disturbed the tombs of the dwarven kings. Alliance-leaning counterpart to Ragefire Chasm; Horde groups can reportedly enter.", c: "o" },
+  { n: "Ruins of Lordaeron", t: "dungeon", z: "tirisfal", e: [44, 13.8], lv: [15, 22], isNew: true, d: "Help the Forsaken reclaim the ruined capital above the Undercity. Horde-leaning; Alliance groups need more cunning to reach it.", c: "o" },
   { n: "Excavation Site", t: "dungeon", z: "wetlands", e: [62.4, 46.2], lv: [24, 29], isNew: true, d: "A mysterious dig above Whelgar's Excavation.", c: "o" },
   { n: "City of Dalaran", t: "dungeon", z: "alterac", e: [40.4, 23.2], lv: [28, 33], isNew: true, d: "Strange magical trouble inside the chaotic, newly opened city.", c: "o" },
   { n: "The Drowned City", t: "dungeon", z: "stv", e: [42.2, 94.6], lv: [35, 40], isNew: true, d: "Ancient troll ruins risen off the coast: trolls, naga and stranded pirates. Playable at BlizzCon 2026. Which coast is not known; marker position estimated.", c: "t" },
@@ -1031,6 +1031,8 @@ const KOFI_URL = "https://ko-fi.com/fistao";
    If the Tally script is not loaded yet, the link opens the same form in a new tab, with the same fields in its address. */
 const FEEDBACK_FORM = "RGp5WQ";
 const CHANGELOG = [
+  { v: "4.17.1", d: "September 29, 2026", title: "Dungeon levels from the game", items: [
+    ["fix", "Dungeon level ranges now match the in-game group finder: Wailing Caverns 15-24, Hall of Thanes 13-20, Ruins of Lordaeron 15-22."]] },
   { v: "4.17", d: "September 28, 2026", title: "Transport updates from the beta files", items: [
     ["fix", "Zephras Isle, Horde: the zeppelin lands on Skywatcher Plateau in the north-west of Mulgore, a short walk from Thunder Bluff."],
     ["fix", "The Menethil, Southshore and Auberdine boat sails one way round: from Menethil it calls at Southshore first, from Auberdine it goes straight to Menethil. Routes now use it only in that direction."],
