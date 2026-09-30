@@ -1031,6 +1031,8 @@ const KOFI_URL = "https://ko-fi.com/fistao";
    If the Tally script is not loaded yet, the link opens the same form in a new tab, with the same fields in its address. */
 const FEEDBACK_FORM = "RGp5WQ";
 const CHANGELOG = [
+  { v: "4.17.3", d: "September 30, 2026", title: "Gnomeregan for the Horde", items: [
+    ["new", "On a Horde route to Gnomeregan, Getting there mentions the goblin teleporter in Booty Bay, open with the Goblin Transponder from the quest Gnomer-gooooone! (Classic, to confirm in Forever). Thanks to the player who suggested it."]] },
   { v: "4.17.2", d: "September 29, 2026", title: "Zephras Isle and Mount Hyjal flights", items: [
     ["fix", "Zephras Isle: the airship to Skywatcher Plateau, next to Thunder Bluff, is open to every Horde character, both ways, not only Skyborne. Called a zeppelin or a skycutter depending on the source."],
     ["fix", "Mount Hyjal: Tainted Foothills (both factions) links to Everlook and to Summit of Eternity, which is open to both factions too. The flight between them is estimated from distance."],
@@ -1628,7 +1630,7 @@ function gettingThere(r){ const b=PLACES[norm((plan.to||"").trim())]; if(!b||b.t
   if(!lines.length) lines.push(`No enemy territory on the way${state.level!=null?", and nothing far above your level":""}.`);
   const lv=p.lv?(p.lv[0]===p.lv[1]?`level ${p.lv[0]}`:`levels ${p.lv[0]}\u2013${p.lv[1]}`):"";
   return `<div class="jr ${k.lvl}"><div class="jr-k"><span class="ab-label" style="margin:0">Getting there</span><span class="risk ${k.lvl}">${RISK_TXT[k.lvl]}</span></div>
-   <ul>${lines.map(l=>`<li>${l}</li>`).join("")}</ul>${k.lvl==="danger"?`<p class="jr-tip">On a PvP realm, go as a group.</p>`:""}
+   <ul>${lines.map(l=>`<li>${l}</li>`).join("")}</ul>${k.lvl==="danger"?`<p class="jr-tip">On a PvP realm, go as a group.</p>`:""}${p.n==="Gnomeregan"&&plan.f==="horde"?`<p class="jr-tip">Horde shortcut: with the Goblin Transponder (quest Gnomer-gooooone! from Scooty in Booty Bay, level 20 and up), the goblin teleporter in Booty Bay takes you straight to Gnomeregan and back, away from Dun Morogh. Classic, not yet confirmed in Forever.</p>`:""}
    <div class="dj-facts"><span>${p.t==="raid"?"Raid":"Dungeon"}${lv?" \u00b7 "+lv:""}</span>${p.isNew?'<span class="g">New in Forever</span>':""}</div>${p.d?`<p class="jr-d">${esc(p.d)}</p>`:""}</div>`; }
 /* Find route shows when there is something to do: dim until both places are filled,
    bright (with a short glow) when the places differ from the route on screen, quiet when the route shown is up to date */
