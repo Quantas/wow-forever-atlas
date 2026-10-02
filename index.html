@@ -61,7 +61,6 @@ button,input{font:inherit;color:inherit}
 .mark svg{height:30px;width:30px;display:block}
 .mark .t{font-weight:700;font-size:17px;letter-spacing:-.01em;line-height:1.15}
 .mark .s{font-size:12.5px;color:var(--muted);line-height:1.2}
-.mark .t,.mark .s{display:block}
 .ver{flex:none;margin-left:-8px;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:2px 9px;font-size:12px;font-weight:600;color:var(--muted);cursor:pointer}
 .ver:hover{border-color:var(--accent);color:var(--text)}
 .search{position:relative;flex:1;max-width:400px}
@@ -451,9 +450,6 @@ details.fine p{font-size:13px;color:var(--muted);margin:8px 0 0}
 .planbox .row.nudge input::placeholder{color:#f5a54f;opacity:1}
 @keyframes nudgex{0%,100%{transform:translateX(0)}20%{transform:translateX(-5px)}40%{transform:translateX(4px)}60%{transform:translateX(-3px)}80%{transform:translateX(2px)}}
 @media (prefers-reduced-motion: reduce){.planbox .row.nudge input{animation:none}}
-
-/* The site name is the page title for search engines: same look as before */
-.mark h1.brand{margin:0;font:inherit;color:inherit;letter-spacing:inherit}
 </style>
 </head>
 <body>
@@ -461,7 +457,7 @@ details.fine p{font-size:13px;color:var(--muted);margin:8px 0 0}
 <header class="top">
   <a class="mark" href="#" id="home" aria-label="Travelcraft, reset view">
     <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="7.5" fill="#0f1c2f" stroke="#2f4766" stroke-width="1.5"/><path d="M8.5 22.5C13 23.5 11.8 16.5 16 16.3 20.3 16.1 18.8 11.4 23 9.8" fill="none" stroke="#06121f" stroke-width="3.6" stroke-linecap="round"/><path d="M8.5 22.5C13 23.5 11.8 16.5 16 16.3 20.3 16.1 18.8 11.4 23 9.8" fill="none" stroke="#e0b95a" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="2.6 2.2"/><circle cx="8.5" cy="22.5" r="2.6" fill="#3fb27a" stroke="#06121f" stroke-width="1"/><path d="M23 13.2c-.7-1.3-2.9-2.8-2.9-5a2.9 2.9 0 015.8 0c0 2.2-2.2 3.7-2.9 5z" fill="#3d9bff" stroke="#06121f" stroke-width=".9"/><circle cx="23" cy="8.2" r="1" fill="#e7eef8"/></svg>
-    <h1 class="brand"><span class="t">Travelcraft</span><span class="s">Map and route planner for WoW Forever</span></h1>
+    <span><div class="t">Travelcraft</div><div class="s">Map and route planner for WoW Forever</div></span>
   </a>
   <button class="ver" id="ver" title="Patch notes"></button>
   <div class="search" role="combobox" aria-expanded="false" aria-owns="results" aria-haspopup="listbox">
@@ -886,7 +882,7 @@ const POIS = [
   // New dungeons and raids
   { n: "Hall of Thanes", t: "dungeon", z: "dunmorogh", e: [51.6, 55.6], lv: [13, 20], isNew: true, d: "Beneath Ironforge: intruders have disturbed the tombs of the dwarven kings. Alliance-leaning counterpart to Ragefire Chasm; Horde groups can reportedly enter.", c: "o" },
   { n: "Ruins of Lordaeron", t: "dungeon", z: "tirisfal", e: [44, 13.8], lv: [15, 22], isNew: true, d: "Help the Forsaken reclaim the ruined capital above the Undercity. Horde-leaning; Alliance groups need more cunning to reach it.", c: "o" },
-  { n: "Excavation Site", t: "dungeon", z: "wetlands", e: [62.4, 46.2], lv: [24, 29], isNew: true, d: "A mysterious dig above Whelgar's Excavation.", c: "o" },
+  { n: "Excavation Site", t: "dungeon", z: "wetlands", e: [62.4, 46.2], lv: [26, 31], isNew: true, d: "A mysterious dig above Whelgar's Excavation. Level 26 to 31 per Blizzard's beta notes of October 1.", c: "o" },
   { n: "City of Dalaran", t: "dungeon", z: "alterac", e: [40.4, 23.2], lv: [28, 33], isNew: true, d: "Strange magical trouble inside the chaotic, newly opened city.", c: "o" },
   { n: "The Drowned City", t: "dungeon", z: "stv", e: [42.2, 94.6], lv: [35, 40], isNew: true, d: "Ancient troll ruins risen off the coast: trolls, naga and stranded pirates. Playable at BlizzCon 2026. Which coast is not known; marker position estimated.", c: "t" },
   { n: "Krol'dok Stronghold", t: "dungeon", z: "riverglades", e: [88.6, 71.4], lv: [40, 45], isNew: true, d: "Huge outdoor ogre dungeon: kidnappings, raids on settlements, chanting at night. Blizzard corrected its range to 40-45. Position estimated.", c: "t" },
@@ -1035,8 +1031,8 @@ const KOFI_URL = "https://ko-fi.com/fistao";
    If the Tally script is not loaded yet, the link opens the same form in a new tab, with the same fields in its address. */
 const FEEDBACK_FORM = "RGp5WQ";
 const CHANGELOG = [
-  { v: "4.17.4", d: "September 30, 2026", title: "A page title for search engines", items: [
-    ["fix", "The site name in the top bar is now the page's main title in the code, so search engines like Bing read what the page is about. Nothing changes on screen."]] },
+  { v: "4.17.4", d: "October 2, 2026", title: "Excavation Site levels", items: [
+    ["fix", "Excavation Site (Wetlands) is level 26 to 31, as announced in Blizzard's beta notes of October 1."]] },
   { v: "4.17.3", d: "September 30, 2026", title: "Gnomeregan for the Horde", items: [
     ["new", "On a Horde route to Gnomeregan, Getting there mentions the goblin teleporter in Booty Bay, open with the Goblin Transponder from the quest Gnomer-gooooone! (Classic, to confirm in Forever). Thanks to the player who suggested it."]] },
   { v: "4.17.2", d: "September 29, 2026", title: "Zephras Isle and Mount Hyjal flights", items: [
