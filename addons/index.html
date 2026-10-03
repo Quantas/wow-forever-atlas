@@ -100,6 +100,13 @@ main{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
 .lead{font-size:19px;max-width:720px;margin:14px 0 26px}
 .grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:40px;align-items:start}
 /* gallery */
+.news-box{margin-top:28px;padding:20px 22px;border:1px solid var(--line-2);border-radius:14px;background:linear-gradient(180deg,rgba(224,185,90,.07),rgba(224,185,90,0) 60%),var(--surface);scroll-margin-top:24px}
+.news-box:target{box-shadow:0 0 0 2px var(--gold)}
+.nb-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.nb-head h3{margin:0;font-size:19px}
+.nb-tag{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);background:var(--gold);padding:3px 9px;border-radius:999px}
+.nb-list{margin:0;padding-left:20px;display:grid;gap:8px;color:var(--muted);font-size:15px;line-height:1.5}
+.nb-list b{color:var(--text);font-weight:600}
 .gal{min-width:0}
 .gal figure{border-radius:14px;overflow:hidden;border:1px solid var(--line-2);background:#0a1422;aspect-ratio:16/9}
 .gal figure img{width:100%;height:100%;object-fit:cover}
@@ -178,10 +185,14 @@ main{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
         <figcaption></figcaption>
         <div class="thumbs" role="list">
           <button type="button" role="listitem" data-src="img/tc-plan.jpg" data-cap="Plan any trip from the world map, with the round button at its top left." data-alt="The Travel panel next to the world map, with a route from Orgrimmar to Razorfen Kraul" aria-label="Plan any trip from the world map, with the round button at its top left."><img src="img/tc-plan-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
+          <button type="button" role="listitem" data-src="img/tc-follow.jpg" data-cap="The route next to your quests, ticked off as you go." data-alt="The objective tracker showing a route, step by step" aria-label="The route next to your quests, ticked off as you go."><img src="img/tc-follow-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
           <button type="button" role="listitem" data-src="img/tc-map.jpg" data-cap="Flight masters, harbours, zeppelins and the ways out of each zone." data-alt="The Barrens map with flight masters, a harbour and zone exit arrows" aria-label="Flight masters, harbours, zeppelins and the ways out of each zone."><img src="img/tc-map-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
-          <button type="button" role="listitem" data-src="img/tc-levels.jpg" data-cap="Zone levels on the continent maps, coloured for your character." data-alt="Eastern Kingdoms map with the level range of every zone" aria-label="Zone levels on the continent maps, coloured for your character."><img src="img/tc-levels-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
-          <button type="button" role="listitem" data-src="img/tc-follow.jpg" data-cap="The route next to your quests, with a flight timer." data-alt="The objective tracker showing a route, and a flight timer bar" aria-label="The route next to your quests, with a flight timer."><img src="img/tc-follow-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
+          <button type="button" role="listitem" data-src="img/tc-your-map.jpg" data-cap="Choose the travel points you want, unexplored areas, zone levels always or on mouseover." data-alt="The Barrens with unexplored areas tinted, and the Map page of the options" aria-label="Choose the travel points you want, unexplored areas, zone levels always or on mouseover."><img src="img/tc-your-map-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
+          <button type="button" role="listitem" data-src="img/tc-dungeon-maps.jpg" data-cap="Right-click an entrance to see the dungeon map, floor by floor." data-alt="The game's own map of Gnomeregan shown over the world map, with its floor menu" aria-label="Right-click an entrance to see the dungeon map, floor by floor."><img src="img/tc-dungeon-maps-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
+          <button type="button" role="listitem" data-src="img/tc-instances.jpg" data-cap="Dungeon and raid entrances on the map, with the time and how safe the way is." data-alt="Eastern Kingdoms map with dungeon and raid entrance icons and a tooltip" aria-label="Dungeon and raid entrances on the map, with the time and how safe the way is."><img src="img/tc-instances-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
           <button type="button" role="listitem" data-src="img/tc-dungeons.jpg" data-cap="Dungeons for your level, and how safe the way there is." data-alt="The list of dungeons for level 14 and the route to one of them" aria-label="Dungeons for your level, and how safe the way there is."><img src="img/tc-dungeons-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
+          <button type="button" role="listitem" data-src="img/tc-share.jpg" data-cap="Share a route with your party, guild or a friend." data-alt="A route shared in guild chat, opened in a friend's Travel panel" aria-label="Share a route with your party, guild or a friend."><img src="img/tc-share-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
+          <button type="button" role="listitem" data-src="img/tc-levels.jpg" data-cap="Zone levels on the continent maps, coloured for your character." data-alt="Eastern Kingdoms map with the level range of every zone" aria-label="Zone levels on the continent maps, coloured for your character."><img src="img/tc-levels-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
           <button type="button" role="listitem" data-src="img/tc-flight.jpg" data-cap="A flight timer, Classic or Modern." data-alt="The two looks of the flight timer and their options" aria-label="A flight timer, Classic or Modern."><img src="img/tc-flight-s.jpg" width="320" height="180" alt="" loading="lazy"></button>
         </div>
       </div>
@@ -189,9 +200,10 @@ main{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
         <ul class="facts">
           <li><div><b>Routes on the real roads</b> <span>from the Travel panel on the world map, with the time each step takes.</span></div></li>
           <li><div><b>Tracked like a quest</b> <span>next to your objectives, with a flight timer for every flight.</span></div></li>
-          <li><div><b>Every way to travel on the map</b> <span>flight masters, harbours, zeppelins and an arrow at each way out of a zone.</span></div></li>
-          <li><div><b>Dungeons for your level</b> <span>how far each one is and how safe the way there is.</span></div></li>
-          <li><div><b>Zone levels</b> <span>on the continent maps, coloured like quests for your character.</span></div></li>
+          <li><div><b>Every way to travel on the map</b> <span>flight masters, harbours, zeppelins, sky docks, the tram and the ways out of each zone. Show only the ones you want.</span></div></li>
+          <li><div><b>Dungeons and raids</b> <span>the ones for your level, their entrances on the map, and the game's own map of each one, floor by floor.</span></div></li>
+          <li><div><b>Share your route</b> <span>with your party, raid, guild or a friend, who opens it in one click.</span></div></li>
+          <li><div><b>Your map, your way</b> <span>unexplored areas, zone levels always or on mouseover, the fishing skill of each zone.</span></div></li>
         </ul>
         <p class="meta">Free - English, French and Spanish</p>
         <div class="ctas">
@@ -199,6 +211,17 @@ main{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
           <a class="btn big" href="/" data-goatcounter-click="addons-travelcraft-map">Try the planner on the map</a>
         </div>
       </div>
+    </div>
+    <div class="news-box" id="travelcraft-new">
+      <div class="nb-head"><span class="nb-tag">New in 1.19</span><h3>What's new this week</h3></div>
+      <ul class="nb-list">
+        <li><b>Dungeon and raid maps.</b> Right-click an entrance on the map to see the game's own map of the instance, floor by floor. Inside a dungeon, the world map opens on it.</li>
+        <li><b>Dungeon and raid entrances on the map</b>, with their levels, the time to get there and how safe the way is.</li>
+        <li><b>Share your route</b> in chat. Friends with Travelcraft open it in one click; the others see how to get the addon.</li>
+        <li><b>Choose your travel points</b> one by one, and the exit arrows on their own.</li>
+        <li><b>Unexplored areas</b> in the colour of your choice, <b>zone levels on mouseover</b>, the <b>fishing skill</b> of each zone, and the <b>Deeprun Tram</b> on the map.</li>
+        <li><b>Clear options pages</b>, and routes that use up to 15 times less memory.</li>
+      </ul>
     </div>
   </section>
 
