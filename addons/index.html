@@ -6,12 +6,17 @@
 <title>WoW Forever addons: Travelcraft and SameSame</title>
 <meta name="description" content="Two free addons for World of Warcraft: Forever that look and feel like part of the game. Travelcraft plans any trip from the world map. SameSame sets up a new character like your main in one click.">
 <link rel="canonical" href="https://wow-travelcraft.com/addons/">
+<link rel="alternate" hreflang="en" href="https://wow-travelcraft.com/addons/">
+<link rel="alternate" hreflang="fr" href="https://wow-travelcraft.com/fr/addons/">
+<link rel="alternate" hreflang="es" href="https://wow-travelcraft.com/es/addons/">
+<link rel="alternate" hreflang="x-default" href="https://wow-travelcraft.com/addons/">
 <meta name="theme-color" content="#0a1422">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Travelcraft">
 <meta property="og:title" content="WoW Forever addons: Travelcraft and SameSame">
 <meta property="og:description" content="Two free addons that look and feel like part of the game: plan any trip from the world map, and set up a new character like your main in one click.">
 <meta property="og:url" content="https://wow-travelcraft.com/addons/">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://wow-travelcraft.com/addons/img/share-addons.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -144,6 +149,24 @@ main{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
   .thumbs button{width:96px}
 }
 </style>
+<style>.langpick{position:relative;flex:none}
+.lp-btn{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 10px;border-radius:10px;border:1px solid var(--line-2,#2a3b55);background:transparent;color:var(--text,#e8eef7);font:600 13.5px/1 inherit;font-family:inherit;cursor:pointer}
+.lp-btn:hover{background:var(--surface-2,#16243a)}
+.lp-btn svg{width:17px;height:17px;color:var(--muted,#9fb0c8)}
+.lp-btn .lp-car{width:13px;height:13px}
+.lp-menu{position:absolute;right:0;top:calc(100% + 6px);min-width:160px;padding:6px;border-radius:12px;border:1px solid var(--line-2,#2a3b55);background:var(--surface,#0f1a2b);box-shadow:0 12px 32px rgba(0,0,0,.4);z-index:50}
+.lp-menu[hidden]{display:none}
+.lp-menu a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px;border-radius:8px;color:var(--text,#e8eef7);text-decoration:none;font-size:14px}
+.lp-menu a:hover{background:var(--surface-2,#16243a)}
+.lp-menu a[aria-checked="true"]{color:var(--accent,#3d9bff);font-weight:700}
+.lp-menu a svg{width:15px;height:15px}
+.lp-suggest{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);display:flex;align-items:center;gap:12px;max-width:calc(100% - 24px);box-sizing:border-box;padding:8px 8px 8px 16px;border-radius:999px;border:1px solid var(--line-2,#2a3b55);background:var(--surface,#0f1a2b);box-shadow:0 10px 30px rgba(0,0,0,.45);color:var(--muted,#9fb0c8);font:14px/1.3 inherit;font-family:inherit;z-index:60}
+.lp-suggest a{color:var(--accent,#3d9bff);font-weight:700;text-decoration:none;white-space:nowrap}
+.lp-suggest a:hover{text-decoration:underline}
+.lp-suggest button{flex:none;width:26px;height:26px;border-radius:50%;border:0;background:transparent;color:var(--muted,#9fb0c8);font-size:17px;cursor:pointer}
+.lp-suggest button:hover{background:var(--surface-2,#16243a);color:var(--text,#e8eef7)}
+@media (max-width: 700px){ .lp-btn{height:32px;padding:0 8px} .lp-btn .lp-car{display:none} }
+</style>
 </head>
 <body>
 <header class="top">
@@ -151,6 +174,7 @@ main{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
   <span class="sp"></span>
   <a class="btn kofi" href="https://ko-fi.com/fistao" target="_blank" rel="noopener" data-goatcounter-click="addons-kofi-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg><span class="l">Support</span></a>
   <a class="btn primary" href="/" data-goatcounter-click="addons-open-map">Open the map</a>
+<div class="langpick" id="langPick"></div>
 </header>
 <main>
   <section class="intro">
@@ -201,6 +225,7 @@ main{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
           <li><div><b>Routes on the real roads</b> <span>from the Travel panel on the world map, with the time each step takes.</span></div></li>
           <li><div><b>Tracked like a quest</b> <span>next to your objectives, with a flight timer for every flight.</span></div></li>
           <li><div><b>Every way to travel on the map</b> <span>flight masters, harbours, zeppelins, sky docks, the tram and the ways out of each zone. Show only the ones you want.</span></div></li>
+          <li><div><b>Your shortcuts</b> <span>hearthstone, mage and druid teleports, engineering gadgets: used when they save time.</span></div></li>
           <li><div><b>Dungeons and raids</b> <span>the ones for your level, their entrances on the map, and the game's own map of each one, floor by floor.</span></div></li>
           <li><div><b>Share your route</b> <span>with your party, raid, guild or a friend, who opens it in one click.</span></div></li>
           <li><div><b>Your map, your way</b> <span>unexplored areas, zone levels always or on mouseover, the fishing skill of each zone.</span></div></li>
@@ -213,14 +238,12 @@ main{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
       </div>
     </div>
     <div class="news-box" id="travelcraft-new">
-      <div class="nb-head"><span class="nb-tag">New in 1.19</span><h3>What's new this week</h3></div>
+      <div class="nb-head"><span class="nb-tag">New in 1.20</span><h3>What's new in the addon</h3></div>
       <ul class="nb-list">
-        <li><b>Dungeon and raid maps.</b> Right-click an entrance on the map to see the game's own map of the instance, floor by floor. Inside a dungeon, the world map opens on it.</li>
-        <li><b>Dungeon and raid entrances on the map</b>, with their levels, the time to get there and how safe the way is.</li>
-        <li><b>Share your route</b> in chat. Friends with Travelcraft open it in one click; the others see how to get the addon.</li>
-        <li><b>Choose your travel points</b> one by one, and the exit arrows on their own.</li>
-        <li><b>Unexplored areas</b> in the colour of your choice, <b>zone levels on mouseover</b>, the <b>fishing skill</b> of each zone, and the <b>Deeprun Tram</b> on the map.</li>
-        <li><b>Clear options pages</b>, and routes that use up to 15 times less memory.</li>
+        <li><b>Your shortcuts in your routes.</b> Hearthstone, Astral Recall, mage teleports, the druid's Teleport: Moonglade and the engineering transporters are added to a route when they save time, only if you have them and they are ready. Nothing is ever cast for you.</li>
+        <li><b>Works with Questie.</b> The route you follow sits right under Questie's quest tracker and stays on screen when you fold it.</li>
+        <li><b>Fold the route to one line</b> next to your quests, with the time left in flight still in sight.</li>
+        <li><b>Also new in 1.19:</b> dungeon and raid maps, route sharing, your choice of travel points, unexplored areas, zone levels on mouseover, and routes that use up to 15 times less memory.</li>
       </ul>
     </div>
   </section>
@@ -262,6 +285,7 @@ main{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
   <a href="https://tally.so/r/RGp5WQ?version=addons-page&amp;device=web" target="_blank" rel="noopener" data-goatcounter-click="addons-feedback">Report a problem or suggest something</a>
   <a href="/">Back to the map</a>
 </div></footer>
+<script>window.TC_LANG="en";window.TC_PAGE="addons/";</script>
 <script>
 // Galleries: a click on a thumbnail shows it large, with its caption
 document.querySelectorAll("[data-gal]").forEach(g=>{
@@ -272,5 +296,57 @@ document.querySelectorAll("[data-gal]").forEach(g=>{
 });
 </script>
 <script data-goatcounter="https://benjamhu.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script>/* Language menu (English, Français, Español) and, on the English pages, a one-time suggestion
+   for visitors whose browser is in French or Spanish. The same page in another language keeps
+   the route in the address. */
+(function(){
+  var LANGS = [["en", "English", "EN"], ["fr", "Français", "FR"], ["es", "Español", "ES"]];
+  var cur = window.TC_LANG || "en", page = window.TC_PAGE || "";
+  var urlOf = function(l){ return (l === "en" ? "/" : "/" + l + "/") + page + location.hash; };
+  var store = function(v){ try { localStorage.setItem("tc-lang", v); } catch (e) {} };
+  var stored = null; try { stored = localStorage.getItem("tc-lang"); } catch (e) {}
+  function menu(){
+    var host = document.getElementById("langPick");
+    if (!host) return;
+    var code = (LANGS.filter(function(x){ return x[0] === cur; })[0] || LANGS[0])[2];
+    host.innerHTML = '<button type="button" class="lp-btn" aria-haspopup="true" aria-expanded="false" title="Language">'
+      + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></svg>'
+      + '<span>' + code + '</span><svg class="lp-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>'
+      + '<div class="lp-menu" role="menu" hidden>' + LANGS.map(function(x){
+          return '<a role="menuitemradio" aria-checked="' + (x[0] === cur) + '" href="' + urlOf(x[0]) + '" data-l="' + x[0] + '" data-gc="lang-' + x[0] + '">' + x[1] + (x[0] === cur ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>' : '') + '</a>';
+        }).join("") + '</div>';
+    var btn = host.querySelector(".lp-btn"), m = host.querySelector(".lp-menu");
+    var close = function(){ m.hidden = true; btn.setAttribute("aria-expanded", "false"); };
+    btn.addEventListener("click", function(e){ e.stopPropagation(); m.hidden = !m.hidden; btn.setAttribute("aria-expanded", String(!m.hidden)); });
+    document.addEventListener("click", close);
+    document.addEventListener("keydown", function(e){ if (e.key === "Escape") close(); });
+    m.addEventListener("click", function(e){
+      var a = e.target.closest("a"); if (!a) return;
+      store(a.getAttribute("data-l"));
+      a.href = urlOf(a.getAttribute("data-l"));   // the route as it is now
+    });
+  }
+  function suggest(){
+    if (cur !== "en" || stored) return;
+    var langs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""]);
+    var want = null;
+    for (var i = 0; i < langs.length && !want; i++) {
+      var l = (langs[i] || "").slice(0, 2).toLowerCase();
+      if (l === "en") return;
+      if (l === "fr" || l === "es") want = l;
+    }
+    if (!want) return;
+    var T = { fr: ["Ce site existe en français", "Voir en français"], es: ["Este sitio está en español", "Ver en español"] }[want];
+    var d = document.createElement("div");
+    d.className = "lp-suggest"; d.setAttribute("role", "region"); d.setAttribute("lang", want);
+    d.innerHTML = '<span>' + T[0] + '</span><a href="' + urlOf(want) + '" data-gc="lang-suggest-' + want + '">' + T[1] + '</a><button type="button" aria-label="Close" data-gc="lang-suggest-close">&times;</button>';
+    d.querySelector("a").addEventListener("click", function(){ store(want); this.href = urlOf(want); });
+    d.querySelector("button").addEventListener("click", function(){ store("en"); d.remove(); });
+    document.body.appendChild(d);
+  }
+  function go(){ menu(); suggest(); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go); else go();
+})();
+</script>
 </body>
 </html>
