@@ -112,6 +112,9 @@ main{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
 .nb-tag{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);background:var(--gold);padding:3px 9px;border-radius:999px}
 .nb-list{margin:0;padding-left:20px;display:grid;gap:8px;color:var(--muted);font-size:15px;line-height:1.5}
 .nb-list b{color:var(--text);font-weight:600}
+.nb-list a,.credit-line a{color:var(--accent);font-weight:600;text-decoration:none}
+.nb-list a:hover,.credit-line a:hover{text-decoration:underline}
+.credit-line{margin:14px 2px 0;font-size:14px;color:var(--muted)}
 .gal{min-width:0}
 .gal figure{border-radius:14px;overflow:hidden;border:1px solid var(--line-2);background:#0a1422;aspect-ratio:16/9}
 .gal figure img{width:100%;height:100%;object-fit:cover}
@@ -226,7 +229,7 @@ main{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
           <li><div><b>Suivi comme une quête</b> <span>à côté de vos objectifs, avec une barre de vol pour chaque vol.</span></div></li>
           <li><div><b>Tous les moyens de voyager, sur la carte</b> <span>maîtres de vol, ports, zeppelins, quais célestes, le tram et les sorties de chaque zone. Affichez seulement ceux que vous voulez.</span></div></li>
           <li><div><b>Vos raccourcis</b> <span>pierre de foyer, téléportations de mage et de druide, gadgets d'ingénieur : utilisés quand ils font gagner du temps.</span></div></li>
-          <li><div><b>Donjons et raids</b> <span>ceux de votre niveau, leurs entrées sur la carte, et la carte du jeu de chacun, étage par étage.</span></div></li>
+          <li><div><b>Donjons et raids</b> <span>ceux de votre niveau, leurs entrées sur la carte, et la carte de chacun avec ses boss, étage par étage.</span></div></li>
           <li><div><b>Partagez votre trajet</b> <span>avec votre groupe, raid, guilde ou un ami, qui l'ouvre en un clic.</span></div></li>
           <li><div><b>Votre carte, vos choix</b> <span>zones inexplorées, niveaux des zones toujours ou au survol, compétence de pêche de chaque zone.</span></div></li>
         </ul>
@@ -238,14 +241,15 @@ main{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
       </div>
     </div>
     <div class="news-box" id="travelcraft-new">
-      <div class="nb-head"><span class="nb-tag">Nouveau en 1.20</span><h3>Les nouveautés de l'addon</h3></div>
+      <div class="nb-head"><span class="nb-tag">Nouveau en 1.22</span><h3>Les nouveautés de l'addon</h3></div>
       <ul class="nb-list">
-        <li><b>Vos raccourcis dans vos trajets.</b> Pierre de foyer, Reflux astral, téléportations de mage, Téléportation : Reflet-de-Lune du druide et transporteurs d'ingénieur sont ajoutés au trajet quand ils font gagner du temps, seulement si vous les avez et qu'ils sont prêts. Rien n'est jamais lancé à votre place.</li>
-        <li><b>Compatible avec Questie.</b> Le trajet suivi se place juste sous le suivi des quêtes de Questie, et reste à l'écran quand vous le réduisez.</li>
-        <li><b>Réduisez le trajet à une ligne</b> à côté de vos quêtes, avec le temps de vol restant toujours visible.</li>
-        <li><b>Aussi nouveau en 1.19 :</b> cartes des donjons et des raids, partage de trajet, choix des points de voyage, zones inexplorées, niveaux des zones au survol, et des trajets qui utilisent jusqu'à 15 fois moins de mémoire.</li>
+        <li><b>Les cartes des nouveaux donjons de Forever</b>, que le jeu n'a pas : Salle des thanes, Ruines de Lordaeron, Site de fouilles des Paluns et Cité de Dalaran, dessinées par <a href="https://asguevara433.wixsite.com/srmaps" target="_blank" rel="noopener" data-goatcounter-click="addons-santiago">Santiago Reyes</a>.</li>
+        <li><b>Les boss sur les cartes de donjon</b>, avec leur nom, numérotés dans l'ordre habituel. Survolez-en un pour voir son niveau et les quêtes qui vous y envoient.</li>
+        <li><b>Vos raccourcis dans vos trajets</b> : pierre de foyer, téléportations de mage et de druide, gadgets d'ingénieur, seulement quand ils sont prêts.</li>
+        <li><b>Compatible avec Questie</b>, et le trajet suivi se réduit à une ligne à côté de vos quêtes.</li>
       </ul>
     </div>
+    <p class="credit-line">Cartes des nouveaux donjons de Forever par <a href="https://asguevara433.wixsite.com/srmaps" target="_blank" rel="noopener" data-goatcounter-click="addons-santiago-credit">Santiago Reyes</a> (Atlas de Azeroth: Forever), utilisées avec son autorisation. Merci Santiago !</p>
   </section>
 
   <section class="addon" id="samesame" aria-labelledby="ss-t">

@@ -112,6 +112,9 @@ main{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
 .nb-tag{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);background:var(--gold);padding:3px 9px;border-radius:999px}
 .nb-list{margin:0;padding-left:20px;display:grid;gap:8px;color:var(--muted);font-size:15px;line-height:1.5}
 .nb-list b{color:var(--text);font-weight:600}
+.nb-list a,.credit-line a{color:var(--accent);font-weight:600;text-decoration:none}
+.nb-list a:hover,.credit-line a:hover{text-decoration:underline}
+.credit-line{margin:14px 2px 0;font-size:14px;color:var(--muted)}
 .gal{min-width:0}
 .gal figure{border-radius:14px;overflow:hidden;border:1px solid var(--line-2);background:#0a1422;aspect-ratio:16/9}
 .gal figure img{width:100%;height:100%;object-fit:cover}
@@ -226,7 +229,7 @@ main{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
           <li><div><b>Tracked like a quest</b> <span>next to your objectives, with a flight timer for every flight.</span></div></li>
           <li><div><b>Every way to travel on the map</b> <span>flight masters, harbours, zeppelins, sky docks, the tram and the ways out of each zone. Show only the ones you want.</span></div></li>
           <li><div><b>Your shortcuts</b> <span>hearthstone, mage and druid teleports, engineering gadgets: used when they save time.</span></div></li>
-          <li><div><b>Dungeons and raids</b> <span>the ones for your level, their entrances on the map, and the game's own map of each one, floor by floor.</span></div></li>
+          <li><div><b>Dungeons and raids</b> <span>the ones for your level, their entrances on the map, and a map of each one with its bosses, floor by floor.</span></div></li>
           <li><div><b>Share your route</b> <span>with your party, raid, guild or a friend, who opens it in one click.</span></div></li>
           <li><div><b>Your map, your way</b> <span>unexplored areas, zone levels always or on mouseover, the fishing skill of each zone.</span></div></li>
         </ul>
@@ -238,14 +241,15 @@ main{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
       </div>
     </div>
     <div class="news-box" id="travelcraft-new">
-      <div class="nb-head"><span class="nb-tag">New in 1.20</span><h3>What's new in the addon</h3></div>
+      <div class="nb-head"><span class="nb-tag">New in 1.22</span><h3>What's new in the addon</h3></div>
       <ul class="nb-list">
-        <li><b>Your shortcuts in your routes.</b> Hearthstone, Astral Recall, mage teleports, the druid's Teleport: Moonglade and the engineering transporters are added to a route when they save time, only if you have them and they are ready. Nothing is ever cast for you.</li>
-        <li><b>Works with Questie.</b> The route you follow sits right under Questie's quest tracker and stays on screen when you fold it.</li>
-        <li><b>Fold the route to one line</b> next to your quests, with the time left in flight still in sight.</li>
-        <li><b>Also new in 1.19:</b> dungeon and raid maps, route sharing, your choice of travel points, unexplored areas, zone levels on mouseover, and routes that use up to 15 times less memory.</li>
+        <li><b>Maps of the new Forever dungeons</b>, which the game does not have: Hall of Thanes, Ruins of Lordaeron, Excavation Site: Wetlands and the City of Dalaran, drawn by <a href="https://asguevara433.wixsite.com/srmaps" target="_blank" rel="noopener" data-goatcounter-click="addons-santiago">Santiago Reyes</a>.</li>
+        <li><b>Bosses on the dungeon maps</b>, with their names, numbered in the usual order of the run. Hover one for its level and the quests that send you there.</li>
+        <li><b>Your shortcuts in your routes</b>: Hearthstone, mage and druid teleports, engineering gadgets, only when they are ready.</li>
+        <li><b>Works with Questie</b>, and the route you follow folds to one line next to your quests.</li>
       </ul>
     </div>
+    <p class="credit-line">Maps of the new Forever dungeons by <a href="https://asguevara433.wixsite.com/srmaps" target="_blank" rel="noopener" data-goatcounter-click="addons-santiago-credit">Santiago Reyes</a> (Atlas de Azeroth: Forever), used with his permission. Thank you, Santiago!</p>
   </section>
 
   <section class="addon" id="samesame" aria-labelledby="ss-t">

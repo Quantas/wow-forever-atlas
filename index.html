@@ -1166,6 +1166,8 @@ const KOFI_URL = "https://ko-fi.com/fistao";
    If the Tally script is not loaded yet, the link opens the same form in a new tab, with the same fields in its address. */
 const FEEDBACK_FORM = "RGp5WQ";
 const CHANGELOG = [
+  { v: "4.19.1", d: "October 5, 2026", title: "Credits", items: [
+    ["new", "The addons page credits Santiago Reyes, who draws the maps of the new Forever dungeons that Travelcraft shows in game."]] },
   { v: "4.19", d: "October 4, 2026", title: "In French and Spanish", items: [
     ["new", "The whole site is now in French and Spanish too: the map, the route planner, the text guide and the addons page, with the game's own place names in each language. Pick your language from the globe button in the top bar. Links to a route work in every language."],
     ["new", "What's new in the addon now shows as a small dot on the Addons button instead of a strip across the map."]] },
@@ -1869,12 +1871,12 @@ $("#planCta").onclick=()=>{state.tab="plan";clearMarks();state.sel=null;render()
 /* Count clicks on the addon buttons in GoatCounter (buttons are drawn after the counter loads, so count by hand) */
 // "New in the addon": a thin strip at the top of the map, once per addon version
 // What's new in the addon: a small dot on the Addons button, once per addon version, until the visitor goes there
-(()=>{ const NEWS="1.20", a=document.getElementById("addonCta"); if(!a) return;
+(()=>{ const NEWS="1.22", a=document.getElementById("addonCta"); if(!a) return;
   let seen=null; try{ seen=localStorage.getItem("tc-news") }catch(e){}
   if(seen===NEWS) return;
   const dot=document.createElement("span"); dot.className="cta-dot"; dot.setAttribute("aria-hidden","true"); a.appendChild(dot);
   a.classList.add("has-news");
-  a.setAttribute("title","New in the addon: character shortcuts and Questie support");
+  a.setAttribute("title","New in the addon: maps of the new dungeons, with their bosses");
   a.setAttribute("href",a.getAttribute("href").split("#")[0]+"#travelcraft-new");
   a.setAttribute("data-gc","addon-header-news");
   a.addEventListener("click",()=>{ try{ localStorage.setItem("tc-news",NEWS) }catch(e){} });

@@ -112,6 +112,9 @@ main{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
 .nb-tag{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);background:var(--gold);padding:3px 9px;border-radius:999px}
 .nb-list{margin:0;padding-left:20px;display:grid;gap:8px;color:var(--muted);font-size:15px;line-height:1.5}
 .nb-list b{color:var(--text);font-weight:600}
+.nb-list a,.credit-line a{color:var(--accent);font-weight:600;text-decoration:none}
+.nb-list a:hover,.credit-line a:hover{text-decoration:underline}
+.credit-line{margin:14px 2px 0;font-size:14px;color:var(--muted)}
 .gal{min-width:0}
 .gal figure{border-radius:14px;overflow:hidden;border:1px solid var(--line-2);background:#0a1422;aspect-ratio:16/9}
 .gal figure img{width:100%;height:100%;object-fit:cover}
@@ -226,7 +229,7 @@ main{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
           <li><div><b>Seguida como una misión</b> <span>junto a tus objetivos, con una barra de vuelo para cada vuelo.</span></div></li>
           <li><div><b>Todas las formas de viajar, en el mapa</b> <span>maestros de vuelo, puertos, zepelines, muelles celestes, el tranvía y las salidas de cada zona. Muestra solo los que quieras.</span></div></li>
           <li><div><b>Tus atajos</b> <span>piedra de hogar, teletransportes de mago y druida, artilugios de ingeniería: se usan cuando ahorran tiempo.</span></div></li>
-          <li><div><b>Mazmorras y bandas</b> <span>las de tu nivel, sus entradas en el mapa y el mapa del juego de cada una, planta por planta.</span></div></li>
+          <li><div><b>Mazmorras y bandas</b> <span>las de tu nivel, sus entradas en el mapa y el mapa de cada una con sus jefes, planta por planta.</span></div></li>
           <li><div><b>Comparte tu ruta</b> <span>con tu grupo, banda, hermandad o un amigo, que la abre con un clic.</span></div></li>
           <li><div><b>Tu mapa, a tu manera</b> <span>zonas sin explorar, niveles de zona siempre o al pasar el ratón, habilidad de pesca de cada zona.</span></div></li>
         </ul>
@@ -238,14 +241,15 @@ main{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
       </div>
     </div>
     <div class="news-box" id="travelcraft-new">
-      <div class="nb-head"><span class="nb-tag">Nuevo en la 1.20</span><h3>Novedades del addon</h3></div>
+      <div class="nb-head"><span class="nb-tag">Nuevo en la 1.22</span><h3>Novedades del addon</h3></div>
       <ul class="nb-list">
-        <li><b>Tus atajos en tus rutas.</b> La piedra de hogar, Retorno astral, los teletransportes de mago, Teletransporte: Claro de la Luna del druida y los transportadores de ingeniería se añaden a la ruta cuando ahorran tiempo, solo si los tienes y están listos. Nunca se lanza nada por ti.</li>
-        <li><b>Compatible con Questie.</b> La ruta que sigues se coloca justo debajo del seguimiento de misiones de Questie y sigue en pantalla cuando lo pliegas.</li>
-        <li><b>Pliega la ruta en una línea</b> junto a tus misiones, con el tiempo de vuelo restante siempre a la vista.</li>
-        <li><b>También nuevo en la 1.19:</b> mapas de mazmorras y bandas, rutas compartidas, elección de los puntos de viaje, zonas sin explorar, niveles de zona al pasar el ratón, y rutas que usan hasta 15 veces menos memoria.</li>
+        <li><b>Los mapas de las nuevas mazmorras de Forever</b>, que el juego no tiene: Hall of Thanes, Ruinas de Lordaeron, Excavation Site: Wetlands y la Ciudad de Dalaran, dibujados por <a href="https://asguevara433.wixsite.com/srmaps" target="_blank" rel="noopener" data-goatcounter-click="addons-santiago">Santiago Reyes</a>.</li>
+        <li><b>Los jefes en los mapas de mazmorra</b>, con su nombre, numerados en el orden habitual. Pasa el ratón por encima para ver su nivel y las misiones que te llevan allí.</li>
+        <li><b>Tus atajos en tus rutas</b>: piedra de hogar, teletransportes de mago y druida, artilugios de ingeniería, solo cuando están listos.</li>
+        <li><b>Compatible con Questie</b>, y la ruta que sigues se pliega en una línea junto a tus misiones.</li>
       </ul>
     </div>
+    <p class="credit-line">Mapas de las nuevas mazmorras de Forever por <a href="https://asguevara433.wixsite.com/srmaps" target="_blank" rel="noopener" data-goatcounter-click="addons-santiago-credit">Santiago Reyes</a> (Atlas de Azeroth: Forever), usados con su permiso. ¡Gracias, Santiago!</p>
   </section>
 
   <section class="addon" id="samesame" aria-labelledby="ss-t">
