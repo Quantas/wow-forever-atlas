@@ -7,6 +7,7 @@
 - [Interactive map and route planner](https://wow-travelcraft.com/): pick a start and a destination, get every step and an estimated travel time. Needs JavaScript.
 - [Text guide](https://wow-travelcraft.com/guide.html): all zones and level ranges, new zones, dungeons and raids, ship and zeppelin routes, travel times between major cities, FAQ. Plain HTML, best page to read and cite.
 - [Routes](https://wow-travelcraft.com/routes/): the most searched trips (capitals, neutral ports, new zones), one page each with every step and the time on foot, by mount and by flight path. Plain HTML.
+- [Dungeons and raids](https://wow-travelcraft.com/dungeons/): every dungeon and raid with its level, zone and the fastest way there from each Horde and Alliance capital, with how safe the way is. Plain HTML.
 - [Flight paths](https://wow-travelcraft.com/flight-paths/): every flight master by zone and faction, with flight times from each one, and the new flight points found in the beta client. Plain HTML.
 - [In-game addon](https://wow-travelcraft.com/#addon): the Travelcraft addon adds a Travel panel to the world map with the same planner and data, available on CurseForge (https://www.curseforge.com/wow/addons/travelcraft).
 

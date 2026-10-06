@@ -16,7 +16,7 @@ CONF_RE={'en':r'(Official|Reported|To confirm|Classic)$','fr':r'(Officiel|Signal
 def fix_sub(L,s): return re.sub(r'(\S)'+CONF_RE[L],r'\1 · \2',s)
 TRANSPORT=re.compile(r'\b(ship|zeppelin|tram|portal|airship|skyship|boat|bateau|zeppelin|tram|portail|dirigeable|vaisseau|barco|zepelín|tren|portal|dirigible|nave)\b',re.I)
 def url(L,kind,slug=None):
-    t=T[L]; base={'home':t['home'],'routes':t['routes'],'flights':t['flights']}[kind]
+    t=T[L]; base={'home':t['home'],'routes':t['routes'],'flights':t['flights'],'dungeons':t['dungeons']}[kind]
     return base+(slug+'/' if slug else '')
 CSS='''
 :root{--bg:#0a1422;--surface:#0f1c2f;--surface-2:#15253b;--line:#22354f;--line-2:#2f4766;--text:#e7eef8;--soft:#c9d6e8;--muted:#8da2bd;--accent:#3d9bff;--accent-ink:#06121f;--gold:#e0b95a;--horde:#e2665a;--alliance:#3d9bff;--both:#3fb27a;--get:#2fa56a;--kofi:#e0607e}
@@ -87,6 +87,15 @@ details.fm>summary::after{content:"+";color:var(--muted);font-weight:700;margin-
 .filter button{border:0;border-radius:8px;padding:8px 16px;font:inherit;font-size:14.5px;background:transparent;color:var(--soft);cursor:pointer}
 .filter button[aria-pressed=true]{background:var(--accent);color:var(--accent-ink);font-weight:700}
 .conf{display:inline-block;font-size:11.5px;font-weight:600;color:var(--muted);border:1px solid var(--line-2);border-radius:4px;padding:0 5px;margin-right:6px}
+/* dungeons */
+.risk{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px;border:1px solid currentColor}
+.risk.safe{color:var(--both)}.risk.warn{color:var(--gold)}.risk.danger{color:var(--horde)}
+.facs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.fac{padding:18px 20px;display:flex;flex-direction:column;gap:10px}
+.fac .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.fac .k{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+.fac .big{font-size:24px;font-weight:700}.fac ul{margin:0;padding-left:18px;color:var(--soft);font-size:14.5px}
+.fac .tip{margin:0;color:var(--muted);font-size:14px}
 footer{border-top:1px solid var(--line);padding:22px 28px 30px;color:var(--muted);font-size:13.5px;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;text-align:center}
 footer a{color:var(--muted)}
 @media (max-width:900px){.grid{grid-template-columns:1fr}}
@@ -105,14 +114,14 @@ def head(L,title,desc,path_by_lang,jsonld,ogtype='article'):
       '<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">\n'
       + ''.join(f'<script type="application/ld+json">{json.dumps(j,ensure_ascii=False)}</script>\n' for j in jsonld) + f'<style>{CSS}</style>\n</head>\n<body>\n')
 def header(L,cur,path_by_lang):
-    t=T[L]; links=[(t['home'],t['nav'][0],'map'),(t['routes'],t['nav'][1],'routes'),(t['flights'],t['nav'][2],'flights'),(t['guide'],t['nav'][3],'guide'),(t['addons'],t['nav'][4],'addons')]
+    t=T[L]; links=[(t['home'],t['nav'][0],'map'),(t['routes'],t['nav'][1],'routes'),(t['dungeons'],t['nav_dj'],'dungeons'),(t['flights'],t['nav'][2],'flights'),(t['guide'],t['nav'][3],'guide'),(t['addons'],t['nav'][4],'addons')]
     nav=''.join(f'<a href="{h}"'+(' aria-current="page"' if k==cur else '')+f'>{e(n)}</a>' for h,n,k in links)
     langs=''.join(f'<a href="{path_by_lang[x]}" hreflang="{x}" lang="{x}"'+(' aria-current="true"' if x==L else '')+f'>{x.upper()}</a>' for x in LANGS)
     return (f'<header class="hd"><a class="brand" href="{t["home"]}">{LOGO}Travelcraft</a><nav class="nav" aria-label="Travelcraft">{nav}</nav>'
             f'<div class="hr"><a class="kofi" href="{KOFI}" target="_blank" rel="noopener" data-goatcounter-click="kofi-seo-header">{e(t["support"])}</a><nav class="langs" aria-label="Language">{langs}</nav></div></header>\n')
 def footer(L):
     t=T[L]
-    return (f'<footer><span>{e(t["footer"])}</span><a href="{t["home"]}">{e(t["nav"][0])}</a><a href="{t["routes"]}">{e(t["nav"][1])}</a><a href="{t["flights"]}">{e(t["nav"][2])}</a>'
+    return (f'<footer><span>{e(t["footer"])}</span><a href="{t["home"]}">{e(t["nav"][0])}</a><a href="{t["routes"]}">{e(t["nav"][1])}</a><a href="{t["dungeons"]}">{e(t["nav_dj"])}</a><a href="{t["flights"]}">{e(t["nav"][2])}</a>'
             f'<a href="{t["guide"]}">{e(t["nav"][3])}</a><a href="{t["addons"]}">{e(t["nav"][4])}</a><a href="{KOFI}" target="_blank" rel="noopener">{e(t["kofi"])}</a></footer>\n'
             '<script data-goatcounter="https://benjamhu.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>\n</body></html>\n')
 def crumbs(L,items):
@@ -217,5 +226,57 @@ for L in LANGS:
     body=(header(L,'flights',fpaths)+f'<main class="narrow">{bch}<h1>{e(t["fp_h1"])}</h1><p class="lead">{e(t["fp_lead"])}</p>{filt}<div style="display:flex;flex-direction:column;gap:28px;margin-top:14px">{secs}'
           f'<section><h2>{e(T[L]["faq_h"])}</h2><dl class="faq">'+''.join(f'<dt>{e(q)}</dt><dd>{e(an)}</dd>' for q,an in faq)+'</dl></section></div></main>\n'+js+footer(L))
     write(fpaths[L],head(L,t['fp_title'],t['fp_desc'],fpaths,[bc,faqld],'website')+body)
+
+# ---------- dungeons and raids ----------
+DJD=json.load(open(os.path.join(HERE,'dj.json')))
+def lvr(l): return str(l[0]) if l[0]==l[1] else f'{l[0]}–{l[1]}'
+def dslug(n): return re.sub(r'[^a-z0-9]+','-',re.sub(r"^the ",'',n.lower()).replace("'",'')).strip('-')
+DJL=sorted(DJD.values(),key=lambda d:(d['t']=='raid',d['lv'][0],d['n']))
+def dname(L,d): return d['n'] if L=='en' else d[L]['n']
+def dzone(L,d): return d['zone'] if L=='en' else d[L]['zone']
+def ddesc(L,d): return d['d'] if L=='en' else d[L]['d']
+RC={'safe':'var(--both)','warn':'var(--gold)','danger':'var(--horde)'}
+for d in DJL:
+    slug=dslug(d['n']); paths={L:url(L,'dungeons',slug) for L in LANGS}; pages.append(('dungeon',slug,paths))
+    for L in LANGS:
+        t=T[L]; x=DJT[L]; n=dname(L,d); z=dzone(L,d); lv=x['lv'](*d['lv']); de=ddesc(L,d)
+        bc,bch=crumbs(L,[(t['crumb_home'],t['home']),(x['crumb'],t['dungeons']),(n,paths[L])])
+        lead=x['lead'](x['Kind'][d['t']],lv,z)+(' '+de if de else '')
+        facs='';faq=[(x['q_where'](n),x['a_where'](n,z,de)),(x['q_level'](n),x['a_level'](lv))]
+        for f in ['horde','alliance']:
+            best=d['best_'+f]; r=d['route_'+f][L]; c=r['card'] or {}; tm=d['times'][best]
+            items=''.join(f'<li>{e(i)}</li>' for i in c.get('items',[]))
+            tip=f'<p class="tip">{e(c["tip"])}</p>' if c.get('tip') else ''
+            ml=t['home']+f'#from={quote(best)}&amp;to={quote(d["n"])}&amp;f={f}&amp;by={d["speed"]}&amp;fp=1'
+            facs+=(f'<div class="card fac"><div class="top"><span class="k" style="color:var(--{f})">{e(x["fac"][f])}</span>'
+                   +(f'<span class="risk {e(c.get("cls",""))}">{e(c.get("risk",""))}</span>' if c.get('risk') else '')+'</div>'
+                   f'<div><span class="big">{fmt(tm["fly"])}</span> <span class="muted">{e(x["from_"](CAPN[L][best]))}, {e(x["fly_lbl"])}</span></div>'
+                   f'<ul>{items}</ul>{tip}{steps_html(L,r["steps"])}<a href="{ml}" data-goatcounter-click="seo-dungeon-map">{e(x["open"])}</a></div>')
+            faq.append((x['q_safe'](f),(c.get('risk','')+'. ' if c.get('risk') else '')+' '.join(c.get('items',[]))+(' '+c['tip'] if c.get('tip') else '')))
+        rows=''.join(f'<tr><td><span class="dot" style="background:var(--{v["f"]})"></span>{e(CAPN[L][cap])}</td><td class="n">{fmt(v["fly"])}</td><td class="n">{fmt(v["foot"])}</td></tr>' for cap,v in d['times'].items())
+        sim=sorted([o for o in DJL if o['n']!=d['n'] and o['t']==d['t']],key=lambda o:abs(o['lv'][0]-d['lv'][0]))[:5]
+        sim_html=''.join(f'<li><a href="{url(L,"dungeons",dslug(o["n"]))}">{e(dname(L,o))}</a> <span class="muted">{lvr(o["lv"])}</span></li>' for o in sim)
+        newb=f'<span class="new">{e(t["new"])}</span>' if d['isNew'] else ''
+        faqld={"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":an}} for q,an in faq]}
+        body=(header(L,'dungeons',paths)+f'<main>{bch}<h1>{e(x["h1"](n))}{newb}</h1><p class="lead">{e(lead)}</p>'
+          f'<div class="grid"><div class="col"><section><div class="facs">{facs}</div><p class="muted" style="margin:0;font-size:14px">{e(x["speed_note"][d["speed"]])}</p></section>'
+          f'<section><h2>{e(x["all_caps"])}</h2><div class="card" style="overflow-x:auto"><table><thead><tr><th>{e(x["th"][0])}</th><th class="n">{e(x["th"][1])}</th><th class="n">{e(x["th"][2])}</th></tr></thead><tbody>{rows}</tbody></table></div></section>'
+          f'<section><h2>{e(t["faq_h"])}</h2><dl class="faq">'+''.join(f'<dt>{e(q)}</dt><dd>{e(an)}</dd>' for q,an in faq)+'</dl></section></div>'
+          f'<aside><div class="card side"><div class="k">{e(x["similar"])}</div><ul>{sim_html}<li><a class="muted" href="{t["dungeons"]}">{e(x["all"])}</a></li></ul></div>'
+          f'<div class="card side"><div class="k">{e(t["plan_h"])}</div><p>{e(t["plan_t"])}</p><a href="{t["home"]}">{e(t["open_map_short"])}</a></div>'
+          f'<div class="card side"><div class="k">{e(t["addon_h"])}</div><p>{e(t["addon_t"])}</p><a class="get" href="{t["addons"]}">{e(t["addon_l"])}</a></div></aside></div></main>\n'+footer(L))
+        write(paths[L],head(L,x['title'](n),x['desc'](n,x['kind'][d['t']],lv,z),paths,[bc,faqld])+body)
+dpaths={L:url(L,'dungeons') for L in LANGS}; pages.append(('dhub','',dpaths))
+for L in LANGS:
+    t=T[L]; x=DJT[L]; bc,bch=crumbs(L,[(t['crumb_home'],t['home']),(x['crumb'],t['dungeons'])])
+    secs=''
+    for g in ['new','dungeon','raid']:
+        lst=[d for d in DJL if (d['isNew'] if g=='new' else (not d['isNew'] and d['t']==g))]
+        def bt(d,f): b=d['best_'+f]; return f'{fmt(d["times"][b]["fly"])} <span class="muted">{e(CAPN[L][b])}</span>'
+        rows=''.join(f'<tr><td><a href="{url(L,"dungeons",dslug(d["n"]))}">{e(dname(L,d))}</a></td><td class="n">{lvr(d["lv"])}</td><td>{e(dzone(L,d))}</td><td class="n">{bt(d,"horde")}</td><td class="n">{bt(d,"alliance")}</td></tr>' for d in lst)
+        secs+=f'<section><h2>{e(x["groups"][g])}</h2><div class="card" style="overflow-x:auto"><table><thead><tr>'+''.join(f'<th>{e(h)}</th>' for h in x['hth'])+f'</tr></thead><tbody>{rows}</tbody></table></div></section>'
+    il={"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":DOM+url(L,'dungeons',dslug(d['n'])),"name":dname(L,d)} for i,d in enumerate(DJL)]}
+    body=(header(L,'dungeons',dpaths)+f'<main class="narrow">{bch}<h1>{e(x["hub_h1"])}</h1><p class="lead">{e(x["hub_lead"])}</p><div style="display:flex;flex-direction:column;gap:28px;margin-top:22px">{secs}</div></main>\n'+footer(L))
+    write(dpaths[L],head(L,x['hub_title'],x['hub_desc'],dpaths,[bc,il],'website')+body)
 json.dump(pages,open(os.path.join(HERE,'pages.json'),'w'))
 print('pages written:',sum(1 for _ in pages)*3)
