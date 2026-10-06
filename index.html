@@ -9,6 +9,7 @@
 <link rel="alternate" hreflang="en" href="https://wow-travelcraft.com/">
 <link rel="alternate" hreflang="fr" href="https://wow-travelcraft.com/fr/">
 <link rel="alternate" hreflang="es" href="https://wow-travelcraft.com/es/">
+<link rel="alternate" hreflang="de" href="https://wow-travelcraft.com/de/">
 <link rel="alternate" hreflang="x-default" href="https://wow-travelcraft.com/">
 <meta name="theme-color" content="#0a1422">
 <meta property="og:type" content="website">
@@ -470,9 +471,12 @@ details.fine p{font-size:13px;color:var(--muted);margin:8px 0 0}
 .seo .seo-links{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:12px}
 .seo .seo-links .linkish{font-size:13.5px}
 
+/* Long words (German) break inside narrow titles instead of overflowing */
+.rel-t,.dj-n,.dj-s,.ab-new h3{overflow-wrap:anywhere}
+html[lang=de] .rel-t,html[lang=de] .dj-n,html[lang=de] .dj-s{hyphens:auto;-webkit-hyphens:auto}
 /* Patch note labels: the column fits the longest label of each language */
 .rel li,.ab-new li,.ab-rel .ab-body li{grid-template-columns:var(--tagw,40px) 1fr}
-html[lang=fr]{--tagw:68px} html[lang=es]{--tagw:76px}
+html[lang=fr]{--tagw:68px} html[lang=es]{--tagw:76px} html[lang=de]{--tagw:78px}
 .tag{padding:0 4px;white-space:nowrap;box-sizing:border-box}
 /* Planner labels and the zoom "All" button fit longer words */
 html[lang=es] .planbox label{width:46px}
@@ -1203,6 +1207,8 @@ const KOFI_URL = "https://ko-fi.com/fistao";
    If the Tally script is not loaded yet, the link opens the same form in a new tab, with the same fields in its address. */
 const FEEDBACK_FORM = "RGp5WQ";
 const CHANGELOG = [
+  { v: "4.23", d: "October 6, 2026", title: "In German too", items: [
+    ["new", "The map and the route planner are now in German too, with the German place names of the game. The other pages follow."]] },
   { v: "4.22", d: "October 6, 2026", title: "Dungeons and raids", items: [
     ["new", "New pages for every dungeon and raid: where it is, its level, and the fastest way there from each Horde and Alliance capital, with how safe the way is."]] },
   { v: "4.21", d: "October 6, 2026", title: "Routes and flight paths", items: [
@@ -1941,7 +1947,7 @@ addEventListener("resize",()=>{const old=fitK;fitK=calcFit(); if(Math.abs(V.k-ol
 /* Popular trips in the description at the bottom of the planner */
 sheet.addEventListener("click",ev=>{ const a=ev.target.closest("a[data-tt]"); if(!a) return; ev.preventDefault(); plan.alt=false; plan.from=a.dataset.tf; plan.to=a.dataset.tt; plan.f=a.dataset.tfa; savePlan(); openPlan(); sheet.scrollTop=0; });
 /* Phones: a shorter search placeholder so it fits next to the level box */
-try{ const q=document.getElementById("q"); const mq=matchMedia("(max-width: 860px)"); const long=q.getAttribute("placeholder"); const setPh=()=>{ q.setAttribute("placeholder", mq.matches?({fr:"Rechercher",es:"Buscar"}[window.TC_LANG]||"Search"):long); }; setPh(); mq.addEventListener("change",setPh); }catch(e){}
+try{ const q=document.getElementById("q"); const mq=matchMedia("(max-width: 860px)"); const long=q.getAttribute("placeholder"); const setPh=()=>{ q.setAttribute("placeholder", mq.matches?({fr:"Rechercher",es:"Buscar",de:"Suchen"}[window.TC_LANG]||"Search"):long); }; setPh(); mq.addEventListener("change",setPh); }catch(e){}
 sheet.addEventListener("click",ev=>{ const b=ev.target.closest("button"); if(!b) return;
   if(b.dataset.goto) select({type:"poi",id:b.dataset.goto}); else if(b.dataset.zone) select({type:"zone",id:b.dataset.zone});
   else if(b.dataset.route) select({type:"route",r:ROUTES.find(r=>r.id===b.dataset.route)}); else if(b.id==="showFp"){const c=$("[data-layer=flights]");c.checked=!c.checked;state.layers.flights=c.checked;paint();restyle();render();}
@@ -2002,7 +2008,7 @@ if(document.fonts&&document.fonts.ready) document.fonts.ready.then(()=>restyle()
    for visitors whose browser is in French or Spanish. The same page in another language keeps
    the route in the address. */
 (function(){
-  var LANGS = [["en", "English", "EN"], ["fr", "Français", "FR"], ["es", "Español", "ES"]];
+  var LANGS = [["en", "English", "EN"], ["fr", "Français", "FR"], ["es", "Español", "ES"], ["de", "Deutsch", "DE"]];
   var cur = window.TC_LANG || "en", page = window.TC_PAGE || "";
   var urlOf = function(l){ return (l === "en" ? "/" : "/" + l + "/") + page + location.hash; };
   var store = function(v){ try { localStorage.setItem("tc-lang", v); } catch (e) {} };
@@ -2035,10 +2041,10 @@ if(document.fonts&&document.fonts.ready) document.fonts.ready.then(()=>restyle()
     for (var i = 0; i < langs.length && !want; i++) {
       var l = (langs[i] || "").slice(0, 2).toLowerCase();
       if (l === "en") return;
-      if (l === "fr" || l === "es") want = l;
+      if (l === "fr" || l === "es" || l === "de") want = l;
     }
     if (!want) return;
-    var T = { fr: ["Ce site existe en français", "Voir en français"], es: ["Este sitio está en español", "Ver en español"] }[want];
+    var T = { fr: ["Ce site existe en français", "Voir en français"], es: ["Este sitio está en español", "Ver en español"], de: ["Diese Seite gibt es auf Deutsch", "Auf Deutsch ansehen"] }[want];
     var d = document.createElement("div");
     d.className = "lp-suggest"; d.setAttribute("role", "region"); d.setAttribute("lang", want);
     d.innerHTML = '<span>' + T[0] + '</span><a href="' + urlOf(want) + '" data-gc="lang-suggest-' + want + '">' + T[1] + '</a><button type="button" aria-label="Close" data-gc="lang-suggest-close">&times;</button>';
