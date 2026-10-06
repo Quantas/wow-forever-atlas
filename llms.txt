@@ -19,3 +19,4 @@
 
 ## Addons
 - [Addons page](https://wow-travelcraft.com/addons/): Travelcraft (the same route planner inside the world map) and SameSame (sets up a new character like your main in one click), both free on CurseForge.
+- The whole site is available in English, French (/fr/), Spanish (/es/) and German (/de/).

@@ -7,6 +7,7 @@
 <link rel="alternate" hreflang="en" href="https://wow-travelcraft.com/guide.html">
 <link rel="alternate" hreflang="fr" href="https://wow-travelcraft.com/fr/guide.html">
 <link rel="alternate" hreflang="es" href="https://wow-travelcraft.com/es/guide.html">
+<link rel="alternate" hreflang="de" href="https://wow-travelcraft.com/de/guide.html">
 <link rel="alternate" hreflang="x-default" href="https://wow-travelcraft.com/guide.html">
 <meta property="og:type" content="article"><meta property="og:site_name" content="Travelcraft">
 <meta property="og:title" content="Guía de WoW Forever: zonas, niveles, mazmorras, barcos y tiempos de viaje">
@@ -108,7 +109,7 @@ footer{margin-top:40px;font-size:13px;color:var(--muted);border-top:1px solid va
    for visitors whose browser is in French or Spanish. The same page in another language keeps
    the route in the address. */
 (function(){
-  var LANGS = [["en", "English", "EN"], ["fr", "Français", "FR"], ["es", "Español", "ES"]];
+  var LANGS = [["en", "English", "EN"], ["fr", "Français", "FR"], ["es", "Español", "ES"], ["de", "Deutsch", "DE"]];
   var cur = window.TC_LANG || "en", page = window.TC_PAGE || "";
   var urlOf = function(l){ return (l === "en" ? "/" : "/" + l + "/") + page + location.hash; };
   var store = function(v){ try { localStorage.setItem("tc-lang", v); } catch (e) {} };
@@ -141,10 +142,10 @@ footer{margin-top:40px;font-size:13px;color:var(--muted);border-top:1px solid va
     for (var i = 0; i < langs.length && !want; i++) {
       var l = (langs[i] || "").slice(0, 2).toLowerCase();
       if (l === "en") return;
-      if (l === "fr" || l === "es") want = l;
+      if (l === "fr" || l === "es" || l === "de") want = l;
     }
     if (!want) return;
-    var T = { fr: ["Ce site existe en français", "Voir en français"], es: ["Este sitio está en español", "Ver en español"] }[want];
+    var T = { fr: ["Ce site existe en français", "Voir en français"], es: ["Este sitio está en español", "Ver en español"], de: ["Diese Seite gibt es auf Deutsch", "Auf Deutsch ansehen"] }[want];
     var d = document.createElement("div");
     d.className = "lp-suggest"; d.setAttribute("role", "region"); d.setAttribute("lang", want);
     d.innerHTML = '<span>' + T[0] + '</span><a href="' + urlOf(want) + '" data-gc="lang-suggest-' + want + '">' + T[1] + '</a><button type="button" aria-label="Close" data-gc="lang-suggest-close">&times;</button>';

@@ -207,7 +207,7 @@ DEF={'Orgrimmar':('Orgrimmar','nach Orgrimmar','von Orgrimmar'),'Thunder Bluff':
 _old_name=name; _old_label=pair_label
 def name(L,n): return DEF[n][0] if L=='de' else _old_name(L,n)
 def pair_label(L,a,b): return f"{DEF[a][0]} {DEF[b][1]}" if L=='de' else _old_label(L,a,b)
-T['de']=dict(lang='de',locale='de_DE',home='/de/',routes='/de/routen/',flights='/de/flugpunkte/',guide='/guide.html',addons='/addons/',dungeons='/de/dungeons/',nav_dj='Dungeons',
+T['de']=dict(lang='de',locale='de_DE',home='/de/',routes='/de/routen/',flights='/de/flugpunkte/',guide='/de/guide.html',addons='/de/addons/',dungeons='/de/dungeons/',nav_dj='Dungeons',
   nav=['Karte','Routen','Flugpunkte','Guide','Addons'],support='Unterstützen',crumb_home='Travelcraft',crumb_routes='Routen',crumb_flights='Flugpunkte',
   h1=lambda a,b:f"So kommst du {DEF[a][2]} {DEF[b][1]} in WoW Forever",
   title=lambda a,b:f"{DEF[a][0]} {DEF[b][1]} in WoW Forever: Route und Reisezeit",
