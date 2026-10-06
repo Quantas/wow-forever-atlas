@@ -1207,6 +1207,8 @@ const KOFI_URL = "https://ko-fi.com/fistao";
    If the Tally script is not loaded yet, the link opens the same form in a new tab, with the same fields in its address. */
 const FEEDBACK_FORM = "RGp5WQ";
 const CHANGELOG = [
+  { v: "4.25.1", d: "October 6, 2026", title: "Addons page", items: [
+    ["new", "The addons page shows what is new in the addon up to version 1.24: Ctrl+click a quest on the map, and the entrance and floors on the dungeon maps."]] },
   { v: "4.25", d: "October 6, 2026", title: "Guide and addons page in German", items: [
     ["new", "The text guide and the addons page are now in German too, so the whole site exists in four languages."]] },
   { v: "4.24", d: "October 6, 2026", title: "Routes, dungeons and flight paths in German", items: [
@@ -1927,12 +1929,12 @@ $("#planCta").onclick=()=>{state.tab="plan";clearMarks();state.sel=null;render()
 /* Count clicks on the addon buttons in GoatCounter (buttons are drawn after the counter loads, so count by hand) */
 // "New in the addon": a thin strip at the top of the map, once per addon version
 // What's new in the addon: a small dot on the Addons button, once per addon version, until the visitor goes there
-(()=>{ const NEWS="1.22", a=document.getElementById("addonCta"); if(!a) return;
+(()=>{ const NEWS="1.24", a=document.getElementById("addonCta"); if(!a) return;
   let seen=null; try{ seen=localStorage.getItem("tc-news") }catch(e){}
   if(seen===NEWS) return;
   const dot=document.createElement("span"); dot.className="cta-dot"; dot.setAttribute("aria-hidden","true"); a.appendChild(dot);
   a.classList.add("has-news");
-  a.setAttribute("title","New in the addon: maps of the new dungeons, with their bosses");
+  a.setAttribute("title","New in the addon: Ctrl+click a quest on the map to plan the route");
   a.setAttribute("href",a.getAttribute("href").split("#")[0]+"#travelcraft-new");
   a.setAttribute("data-gc","addon-header-news");
   a.addEventListener("click",()=>{ try{ localStorage.setItem("tc-news",NEWS) }catch(e){} });
