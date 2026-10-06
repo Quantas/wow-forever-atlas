@@ -7,12 +7,12 @@ exec(open(os.path.join(HERE,'pairs.py')).read()); exec(open(os.path.join(HERE,'l
 SITE=sys.argv[1] if len(sys.argv)>1 else os.path.join(HERE,'..')
 D=json.load(open(os.path.join(HERE,'data.json'))); FP=json.load(open(os.path.join(HERE,'fp.json')))
 DOM='https://wow-travelcraft.com'; KOFI='https://ko-fi.com/fistao'; ADDON='https://www.curseforge.com/wow/addons/travelcraft'
-LANGS=['en','fr','es']; e=lambda s: html.escape(str(s),quote=True)
+LANGS=['en','fr','es','de']; e=lambda s: html.escape(str(s),quote=True)
 def mins(eta):
     m=re.search(r'(\d+)\s*min',eta or ''); h=re.search(r'(\d+)\s*h',eta or '')
     return (int(h.group(1))*60 if h else 0)+(int(m.group(1)) if m else 0)
 def fmt(n): return f"{n} min" if n<60 else f"{n//60} h {n%60:02d}"
-CONF_RE={'en':r'(Official|Reported|To confirm|Classic)$','fr':r'(Officiel|Signalé|À confirmer|Classic)$','es':r'(Oficial|Reportado|Por confirmar|Classic)$'}
+CONF_RE={'en':r'(Official|Reported|To confirm|Classic)$','fr':r'(Officiel|Signalé|À confirmer|Classic)$','es':r'(Oficial|Reportado|Por confirmar|Classic)$','de':r'(Offiziell|Gemeldet|Unbestätigt|Classic)$'}
 def fix_sub(L,s): return re.sub(r'(\S)'+CONF_RE[L],r'\1 · \2',s)
 TRANSPORT=re.compile(r'\b(ship|zeppelin|tram|portal|airship|skyship|boat|bateau|zeppelin|tram|portail|dirigeable|vaisseau|barco|zepelín|tren|portal|dirigible|nave)\b',re.I)
 def url(L,kind,slug=None):
@@ -46,7 +46,7 @@ h2{font-size:22px;margin:0 0 10px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:12px}
 .times{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
 .time{padding:14px}.time .l{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
-.time .v{font-size:26px;font-weight:700;margin-top:4px}.time .s{font-size:13px;color:var(--muted)}
+.time .v{font-size:26px;font-weight:700;margin-top:4px;white-space:nowrap}.time .s{font-size:13px;color:var(--muted)}
 .time.best{border-color:var(--accent)}.time.best .l{color:var(--accent)}
 ol.steps{list-style:none;margin:0;padding:0;counter-reset:st}
 ol.steps li{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:14px;padding:14px 0;border-top:1px solid var(--line);counter-increment:st}
@@ -138,6 +138,7 @@ def maplink(L,a,b,f,fp=False): return T[L]['home']+f'#from={quote(a)}&amp;to={qu
 def write(rel,content):
     p=os.path.join(SITE,rel.lstrip('/')); 
     if p.endswith('/'): p+='index.html'
+    if rel.startswith('/de/'): content=re.sub(r'(?<=\d) %','\u00a0%',re.sub(r'(?<=\d) Min\.','\u00a0Min.',re.sub(r'(?<=\d) min\b',' Min.',content)))
     os.makedirs(os.path.dirname(p),exist_ok=True); open(p,'w',encoding='utf-8').write(content)
 pages=[]
 # ---------- route pages ----------
@@ -197,7 +198,7 @@ for L in LANGS:
     secs=''
     for cont in ['Kalimdor','Eastern Kingdoms']:
         zones=sorted(conts.get(cont,{}).items(),key=lambda kv:(kv[1][0]['lv'][0],kv[1][0]['zn']))
-        cname={'en':{'Kalimdor':'Kalimdor','Eastern Kingdoms':'Eastern Kingdoms'},'fr':{'Kalimdor':'Kalimdor','Eastern Kingdoms':"Royaumes de l'Est"},'es':{'Kalimdor':'Kalimdor','Eastern Kingdoms':'Reinos del Este'}}[L][cont]
+        cname={'en':{'Kalimdor':'Kalimdor','Eastern Kingdoms':'Eastern Kingdoms'},'fr':{'Kalimdor':'Kalimdor','Eastern Kingdoms':"Royaumes de l'Est"},'es':{'Kalimdor':'Kalimdor','Eastern Kingdoms':'Reinos del Este'},'de':{'Kalimdor':'Kalimdor','Eastern Kingdoms':'Östliche Königreiche'}}[L][cont]
         rows=''
         for z,fms in zones:
             z0=fms[0]; lv=z0['lv']; lvt=f"{t['level']} {lv[0]}–{lv[1]}" if lv[0]!=lv[1] else f"{t['level']} {lv[0]}"
