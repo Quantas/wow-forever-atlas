@@ -39,21 +39,21 @@
   --bg:#0a1422; --surface:#0f1c2f; --surface-2:#15253b; --line:#22354f; --line-2:#2f4766;
   --text:#e7eef8; --muted:#8da2bd; --accent:#3d9bff; --accent-ink:#06121f; --gold:#e0b95a;
   --sea-1:#0e2238; --sea-2:#091626;
-  --c-o:#3fb27a; --c-r:#e0a23a; --c-t:#e2665a; --c-c:#7f93ad;
+  --c-o:#3fb27a; --c-r:#e0a23a; --c-t:#e2665a; --c-c:#7f93ad; --c-g:#4cc2d6;
   --sans:"Hanken Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   --panel-w:400px;
 }
 @media (prefers-color-scheme: light){
   :root:not([data-theme="dark"]){ --bg:#eef2f7; --surface:#ffffff; --surface-2:#f3f6fa; --line:#d5dde8; --line-2:#b9c6d6;
     --text:#0e1a2b; --muted:#566a84; --accent:#1769d1; --accent-ink:#ffffff; --gold:#8a6410;
-    --c-o:#1f8a57; --c-r:#a86a06; --c-t:#c23b2e; --c-c:#5b6f89; }
+    --c-o:#1f8a57; --c-r:#a86a06; --c-t:#c23b2e; --c-c:#5b6f89; --c-g:#13798c; }
 }
 :root[data-theme="light"]{ --bg:#eef2f7; --surface:#ffffff; --surface-2:#f3f6fa; --line:#d5dde8; --line-2:#b9c6d6;
   --text:#0e1a2b; --muted:#566a84; --accent:#1769d1; --accent-ink:#ffffff; --gold:#8a6410;
-  --c-o:#1f8a57; --c-r:#a86a06; --c-t:#c23b2e; --c-c:#5b6f89; }
+  --c-o:#1f8a57; --c-r:#a86a06; --c-t:#c23b2e; --c-c:#5b6f89; --c-g:#13798c; }
 :root[data-theme="dark"]{ --bg:#0a1422; --surface:#0f1c2f; --surface-2:#15253b; --line:#22354f; --line-2:#2f4766;
   --text:#e7eef8; --muted:#8da2bd; --accent:#3d9bff; --accent-ink:#06121f; --gold:#e0b95a;
-  --c-o:#3fb27a; --c-r:#e0a23a; --c-t:#e2665a; --c-c:#7f93ad; }
+  --c-o:#3fb27a; --c-r:#e0a23a; --c-t:#e2665a; --c-c:#7f93ad; --c-g:#4cc2d6; }
 
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
@@ -179,7 +179,8 @@ a.cta,a.ac-b{text-decoration:none}
 .conf.o{color:var(--c-o)} .conf.o i{background:var(--c-o)}
 .conf.r{color:var(--c-r)} .conf.r i{background:var(--c-r)}
 .conf.t{color:var(--c-t)} .conf.t i{background:var(--c-t)}
-.conf.c{color:var(--c-c)} .conf.c i{background:var(--c-c)}
+.conf.c{color:var(--c-c)}
+.conf.g{color:var(--c-g)} .conf.c i{background:var(--c-c)}
 ul.facts{list-style:none;margin:0;padding:0}
 ul.facts li{padding:8px 0;border-bottom:1px solid var(--line)}
 ul.facts li:last-child{border-bottom:0}
@@ -816,7 +817,7 @@ const ZONES = {
     forever: [
       { t: "Dalaran's barrier falls and the rebuilt city can be entered; players help its denizens.", c: "r" },
       { t: "City of Dalaran is a new dungeon about strange magical trouble inside the city.", c: "o" },
-      { t: "A skyship links Dalaran to Valanaar on Zephras Isle, and a Skyborne portal in the Violet Citadel links the city to the Mage Tower in Stormwind, both ways. The Kirin Tor set it up for the High Order, and players report that only Skyborne can use it.", c: "r" },
+      { t: "A skyship links Dalaran to Valanaar on Zephras Isle, open to both factions. A Skyborne portal in the Violet Citadel links the city to the Mage Tower in Stormwind, both ways; players report that only Skyborne can use it.", c: "r" },
       { t: "Whether Dalaran works as a sanctuary for both factions is not known.", c: "t" }] },
   hillsbrad: { name: "Hillsbrad Foothills", cont: "Eastern Kingdoms", lv: [20, 30], faction: "contested", status: "changed",
     lore: "Green farmland between Southshore and Tarren Mill, two towns a short ride apart and the site of the longest-running world PvP brawl in the game's history.",
@@ -923,8 +924,8 @@ const ZONES = {
       { t: "Players choose Horde or Alliance at character creation; all Skyborne start here.", c: "o" },
       { t: "Designed as a self-contained experience: developers said players will not be sent back for a raid.", c: "r" },
       { t: "The isle lies in the elemental plane of Skywall. Its position on this map is symbolic.", c: "o" },
-      { t: "Alliance way out: a skyship from Valanaar, in the south of the isle, to Dalaran, then the Skyborne portal in the Violet Citadel to the Mage Tower in Stormwind, and back the same way. Seen on the beta.", c: "r" },
-      { t: "Horde way in and out: an airship between the isle and Skywatcher Plateau in the north-west of Mulgore, a short walk from Thunder Bluff, open to every Horde character (Reported). No portal onward to Orgrimmar was seen on arrival.", c: "r" },
+      { t: "Two airships leave Valanaar, in the south of the isle, both open to both factions: one to Dalaran, one to Skywatcher Plateau in the north-west of Mulgore, a short walk from Thunder Bluff. Seen in game.", c: "g" },
+      { t: "From Dalaran, Alliance Skyborne can take the Skyborne portal in the Violet Citadel to the Mage Tower in Stormwind. No portal onward to Orgrimmar was seen in Mulgore.", c: "r" },
       { t: "Players report that only Skyborne can take the Skyborne portal in Stormwind; other races are turned away. The planner uses these Skyborne links only for trips to or from Zephras Isle.", c: "r" }] },
 };
 
@@ -935,18 +936,18 @@ const POIS = [
   { id: "darnassus", n: "Darnassus", t: "city", z: "teldrassil", k: [27.5, -8.5], f: "alliance", d: "Night elf capital in the boughs of Teldrassil.", c: "c" },
   { id: "orgrimmar", n: "Orgrimmar", t: "city", z: "durotar", k: [72.6, 41.6], f: "horde", d: "Horde capital, named for Orgrim Doomhammer. Zeppelin towers stand outside the gates.", c: "c", fp: "horde" },
   { id: "thunderbluff", n: "Thunder Bluff", t: "city", z: "mulgore", k: [41.5, 57.8], f: "horde", d: "Tauren capital on the mesas of northern Mulgore. In Forever, a zeppelin from Zephras Isle lands on Skywatcher Plateau, a short walk away for Horde Skyborne.", c: "c", fp: "horde" },
-  { id: "skywatcher", n: "Skywatcher Plateau", t: "zep", z: "mulgore", k: [39.9, 56.1], f: "horde", isNew: true, d: "Dock in the north-west of Mulgore, a short walk from Thunder Bluff, for the airship to and from Zephras Isle (every Horde character). Position estimated.", c: "r" },
+  { id: "skywatcher", n: "Skywatcher Plateau", t: "zep", z: "mulgore", k: [39.9, 56.1], f: "neutral", isNew: true, d: "Dock in the north-west of Mulgore, a short walk from Thunder Bluff, for the airship to and from Zephras Isle, open to both factions.", c: "r" },
   { id: "stormwind", n: "Stormwind City", t: "city", z: "elwynn", e: [38.2, 70.6], f: "alliance", d: "Human capital. In Forever it gains a harbor with a ship to Auberdine.", c: "c", fp: "alliance" },
   { id: "ironforge", n: "Ironforge", t: "city", z: "dunmorogh", e: [52.5, 53.4], f: "alliance", d: "Dwarven capital carved into the mountain. The Deeprun Tram links it to Stormwind.", c: "c", fp: "alliance" },
   { id: "undercity", n: "Undercity", t: "city", z: "tirisfal", e: [45, 15.8], f: "horde", d: "Forsaken capital in the sewers beneath the ruins of Lordaeron.", c: "c", fp: "horde" },
-  { id: "dalaran", n: "Dalaran", t: "city", z: "alterac", e: [38.6, 24.6], f: "neutral", isNew: true, d: "The Kirin Tor's city on Lordamere Lake. Its barrier falls in Forever and the rebuilt streets can be entered. Skyship to Zephras Isle, and a Skyborne portal to Stormwind, both for the High Order.", c: "r" },
+  { id: "dalaran", n: "Dalaran", t: "city", z: "alterac", e: [38.6, 24.6], f: "neutral", isNew: true, d: "The Kirin Tor's city on Lordamere Lake. Its barrier falls in Forever and the rebuilt streets can be entered. Skyship to Zephras Isle for both factions, and a Skyborne portal to Stormwind for the High Order.", c: "r" },
 
   // Ports and zeppelin towers
   { id: "rutheran", n: "Rut'theran Village", t: "port", z: "teldrassil", k: [31.0, -0.8], f: "alliance", d: "Dock at the foot of Teldrassil.", c: "c", fp: "alliance" },
   { id: "auberdine", n: "Auberdine", t: "port", z: "darkshore", k: [28.5, 14.6], f: "alliance", d: "Night elf harbor town. Two ships in Classic, to Menethil Harbor and to Rut'theran Village, plus two new lines in Forever: Stormwind Harbor, and Menethil by way of Southshore.", c: "c", fp: "alliance" },
   { id: "ratchet", n: "Ratchet", t: "port", z: "barrens", k: [70.6, 58.3], f: "neutral", d: "Steamwheedle Cartel port with the boat to Booty Bay.", c: "c", fp: "both" },
   { id: "theramore", n: "Theramore Isle", t: "port", z: "dustwallow", k: [79.3, 66.5], f: "alliance", d: "Jaina Proudmoore's island city. Boat to Menethil Harbor.", c: "c", fp: "alliance" },
-  { id: "valanaar", n: "Valanaar", t: "sky", z: "zephras", a: [1242, 204], f: "neutral", isNew: true, d: "Skyborne city in the south of Zephras Isle. A skyship flies to Dalaran for the Alliance, and an airship links it to Skywatcher Plateau in Mulgore for every Horde character. Position on this map is symbolic.", c: "r" },
+  { id: "valanaar", n: "Valanaar", t: "sky", z: "zephras", a: [1242, 204], f: "neutral", isNew: true, d: "Skyborne city in the south of Zephras Isle. Two airships leave from their own docks, one to Dalaran and one to Skywatcher Plateau in Mulgore, both open to both factions. Position on this map is symbolic.", c: "r" },
   { id: "steamwheedle", n: "Steamwheedle Port", t: "port", z: "tanaris", k: [78.7, 86.0], f: "neutral", isNew: true, d: "Goblin port on the Tanaris coast. In Forever, the departure point of the new route to the Riverglades.", c: "o" },
   { id: "feathermoon", n: "Feathermoon Stronghold", t: "port", z: "feralas", k: [5.8, 75.7], f: "alliance", d: "Night elf stronghold on the northern shore of Sardor Isle, the northern of the two islands off the Feralas coast.", c: "c", fp: "alliance" },
   { n: "Isle of Dread", t: "area", z: "feralas", k: [4.2, 80.4], d: "The southern island off Feralas, overrun by naga. No dock, no ferry: night elves on Sardor Isle watch it from across the water.", c: "c" },
@@ -1099,11 +1100,11 @@ const ROUTES = [
   { id: "r-org-uc", kind: "zep", f: "horde", from: "orgzep", to: "uczep", isNew: false, c: "c", note: "Classic zeppelin.", via: [[1180, 470]] },
   { id: "r-org-gg", kind: "zep", f: "horde", from: "orgzep", to: "gromgol", isNew: false, c: "c", note: "Classic zeppelin.", via: [[1200, 1130]] },
   { id: "r-uc-gg", kind: "zep", f: "horde", from: "uczep", to: "gromgol", isNew: false, c: "c", note: "Classic zeppelin.", via: [[1480, 560], [1470, 1000]] },
-  { id: "r-val-dal", kind: "sky", f: "alliance", skyborne: true, from: "valanaar", to: "dalaran", isNew: true, c: "r",
-    note: "New in Forever: the High Order skyship between Zephras Isle and Dalaran, seen on the beta. Made for Alliance Skyborne. The isle floats in Skywall, so this sky lane is symbolic.",
+  { id: "r-val-dal", kind: "sky", f: "neutral", skyborne: true, from: "valanaar", to: "dalaran", isNew: true, c: "g",
+    note: "New in Forever: the skyship between Zephras Isle and Dalaran, open to both factions, both ways. Seen in game. The isle floats in Skywall, so this sky lane is symbolic.",
     via: [[1330, 262], [1500, 330]] },
-  { id: "r-val-sky", kind: "zep", f: "horde", from: "valanaar", to: "skywatcher", isNew: true, c: "r",
-    note: "New in Forever: an airship between Zephras Isle and Skywatcher Plateau, in the north-west of Mulgore, a short walk from Thunder Bluff. Open to every Horde character, both ways. Called a zeppelin in most sources but a skycutter in one quest text, so the kind of ship is not certain. The isle floats in Skywall, so this sky lane is symbolic.",
+  { id: "r-val-sky", kind: "zep", f: "neutral", from: "valanaar", to: "skywatcher", isNew: true, c: "g",
+    note: "New in Forever: an airship between Zephras Isle and Skywatcher Plateau, in the north-west of Mulgore, a short walk from Thunder Bluff. Open to both factions, both ways; for the Alliance, it lands on enemy ground. Seen in game. The isle floats in Skywall, so this sky lane is symbolic.",
     via: [[1100, 330], [800, 560], [600, 790]] },
   { id: "r-dal-sw", kind: "portal", f: "alliance", skyborne: true, from: "dalaran", to: "stormwind", isNew: true, c: "r",
     note: "New in Forever: the Skyborne portals between the Violet Citadel in Dalaran and the Mage Tower in Stormwind, set up by the Kirin Tor for the High Order. Seen on the beta in both directions. Players report that only Skyborne can use them.",
@@ -1207,6 +1208,9 @@ const KOFI_URL = "https://ko-fi.com/fistao";
    If the Tally script is not loaded yet, the link opens the same form in a new tab, with the same fields in its address. */
 const FEEDBACK_FORM = "RGp5WQ";
 const CHANGELOG = [
+  { v: "4.25.2", d: "October 7, 2026", title: "Zephras Isle airships", items: [
+    ["fix", "Zephras Isle, checked in game: both airships from Valanaar, to Dalaran and to Skywatcher Plateau in Mulgore, are open to both factions, and routes now use them that way."],
+    ["new", "A new status, Confirmed, marks what was checked in game on the beta."]] },
   { v: "4.25.1", d: "October 6, 2026", title: "Addons page", items: [
     ["new", "The addons page shows what is new in the addon up to version 1.24: Ctrl+click a quest on the map, and the entrance and floors on the dungeon maps."]] },
   { v: "4.25", d: "October 6, 2026", title: "Guide and addons page in German", items: [
@@ -1371,7 +1375,7 @@ const abs=p=>p.a?p.a:p.k?[FR.kal.x0+p.k[0]/100*FR.kal.w, FR.kal.y0+p.k[1]/100*FR
 const FCOL={alliance:"#2f74d6",horde:"#c4432f",contested:"#3a5172",neutral:"#3c9c6c",both:"#8b66d6",none:"url(#hatch)"};
 const FNAME={alliance:"Alliance territory",horde:"Horde territory",contested:"Contested",neutral:"Neutral sanctuary",both:"Both factions (Skyborne start)",none:"Not accessible"};
 const FSHORT={alliance:"Alliance",horde:"Horde",neutral:"Neutral",contested:"Contested",both:"Both factions"};
-const CONF={o:["Official","Stated by Blizzard"],r:["Reported","From press coverage, panels or datamining; not in Blizzard's written material"],t:["To confirm","Our estimate or an open question; check it in the beta"],c:["Classic","Carried over from WoW Classic; Forever may still change it"]};
+const CONF={g:["Confirmed","Checked in game on the beta"],o:["Official","Stated by Blizzard"],r:["Reported","From press coverage, panels or datamining; not in Blizzard's written material"],t:["To confirm","Our estimate or an open question; check it in the beta"],c:["Classic","Carried over from WoW Classic; Forever may still change it"]};
 const TNAME={city:"Capital city",town:"Town or outpost",port:"Harbor",zep:"Zeppelin tower",sky:"Sky dock",dungeon:"Dungeon",raid:"Raid",bg:"Battleground",area:"Landmark"};
 const STATUS={new:"New in Forever",changed:"Updated in Forever",classic:"Classic zone",closed:"Not accessible"};
 const seal=c=>`<span class="conf ${c}" title="${esc(CONF[c][1])}"><i></i>${CONF[c][0]}</span>`;
