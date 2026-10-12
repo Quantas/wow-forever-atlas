@@ -1208,6 +1208,8 @@ const KOFI_URL = "https://ko-fi.com/fistao";
    If the Tally script is not loaded yet, the link opens the same form in a new tab, with the same fields in its address. */
 const FEEDBACK_FORM = "RGp5WQ";
 const CHANGELOG = [
+  { v: "4.27", d: "October 12, 2026", title: "Shadowflare: Decimation", items: [
+    ["new", "The Addons page shows the new Shadowflare: alerts for Shadow Trance and Decimation, each with its own look, sound and place on screen. A small dot on the Addons button points to it until you have seen it."]] },
   { v: "4.26.1", d: "October 9, 2026", title: "Menethil, Southshore and Auberdine boat", items: [
     ["fix", "A second player confirms that this boat sails one way round: Menethil, Southshore, Auberdine, then straight back to Menethil. Routes now use it in that direction only, so from Auberdine to Southshore the way goes through Menethil. Thanks to the players who reported it."]] },
   { v: "4.26", d: "October 9, 2026", title: "New addon: Shadowflare", items: [
@@ -1601,7 +1603,7 @@ function renderAbout(){
 
    <div class="ab-group"><div class="ab-label">Travelcraft</div><div class="ab-card">
    ${sec("addon","The in-game addon",ADDON_LIVE?"The same planner inside the game, on CurseForge":"Coming soon on CurseForge",
-     `<p>Travelcraft is also an addon for World of Warcraft: Forever, ${ADDON_LIVE?`available on <a href="${ADDON_URL}" target="_blank" rel="noopener" data-gc="addon-about">CurseForge</a>`:"coming very soon on CurseForge"}. It runs the same planner on the same data as this map. In game it measures walking on the real ground, so its times can differ a little from this map. <button class="linkish" data-tabgo="addon" data-gc="addon-about-more">More about the addon</button> My other addons: SameSame sets up a new character like your main, and Shadowflare shows warlocks when Shadow Trance procs: <a href="/addons/" data-gc="addons-about">see all three addons</a>.</p><ul class="facts"><li>Open the world map and click the round button under the map legend: the Travel panel opens where the quest log usually is.</li><li>Pick a start and a destination from the menus, type a name, or hold Ctrl and click the map.</li><li>Choose how you travel. Flights use the flight masters your character has discovered, or all of them, or none.</li><li>Click Track route to follow the steps next to your quests. They update as you move.</li></ul><p>The addon draws on the game's own maps, so its routes line up with what you see in game. It is in English, French and Spanish.</p>`)}
+     `<p>Travelcraft is also an addon for World of Warcraft: Forever, ${ADDON_LIVE?`available on <a href="${ADDON_URL}" target="_blank" rel="noopener" data-gc="addon-about">CurseForge</a>`:"coming very soon on CurseForge"}. It runs the same planner on the same data as this map. In game it measures walking on the real ground, so its times can differ a little from this map. <button class="linkish" data-tabgo="addon" data-gc="addon-about-more">More about the addon</button> My other addons: SameSame sets up a new character like your main, and Shadowflare shows warlocks their procs, such as Shadow Trance and Decimation: <a href="/addons/" data-gc="addons-about">see all three addons</a>.</p><ul class="facts"><li>Open the world map and click the round button under the map legend: the Travel panel opens where the quest log usually is.</li><li>Pick a start and a destination from the menus, type a name, or hold Ctrl and click the map.</li><li>Choose how you travel. Flights use the flight masters your character has discovered, or all of them, or none.</li><li>Click Track route to follow the steps next to your quests. They update as you move.</li></ul><p>The addon draws on the game's own maps, so its routes line up with what you see in game. It is in English, French and Spanish.</p>`)}
    ${sec("guide","Text guide","Every zone, ship and travel time on one page",
      `<p>Every zone with its level range, the new zones and dungeons, all ships and zeppelins, and travel times between major cities, on one page: <a href="guide.html">WoW Forever guide</a>.</p>`)}
    ${sec("feedback","Report a problem or suggest something","Every report is read",
@@ -1937,12 +1939,12 @@ $("#planCta").onclick=()=>{state.tab="plan";clearMarks();state.sel=null;render()
 /* Count clicks on the addon buttons in GoatCounter (buttons are drawn after the counter loads, so count by hand) */
 // "New in the addon": a thin strip at the top of the map, once per addon version
 // What's new in the addon: a small dot on the Addons button, once per addon version, until the visitor goes there
-(()=>{ const NEWS="shadowflare", a=document.getElementById("addonCta"); if(!a) return;
+(()=>{ const NEWS="shadowflare-0.9", a=document.getElementById("addonCta"); if(!a) return;
   let seen=null; try{ seen=localStorage.getItem("tc-news") }catch(e){}
   if(seen===NEWS) return;
   const dot=document.createElement("span"); dot.className="cta-dot"; dot.setAttribute("aria-hidden","true"); a.appendChild(dot);
   a.classList.add("has-news");
-  a.setAttribute("title","New addon: Shadowflare, Shadow Trance alerts for warlocks");
+  a.setAttribute("title","Shadowflare update: Decimation, and one alert per proc");
   a.setAttribute("href",a.getAttribute("href").split("#")[0]+"#shadowflare");
   a.setAttribute("data-gc","addon-header-news");
   a.addEventListener("click",()=>{ try{ localStorage.setItem("tc-news",NEWS) }catch(e){} });
