@@ -1,0 +1,43 @@
+# Keeps this fork's main branch in sync with its upstream repository and
+# rebuilds GitHub Pages whenever new upstream commits arrive.
+name: Sync from upstream
+
+on:
+  schedule:
+    - cron: "17 * * * *" # hourly; GitHub may delay scheduled runs a little
+  workflow_dispatch:
+
+permissions:
+  contents: write # merge upstream into main
+  pages: write # request a Pages rebuild
+
+concurrency:
+  group: sync-upstream
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+      BRANCH: main
+    steps:
+      - name: Merge upstream into the default branch
+        id: sync
+        run: |
+          result=$(gh api -X POST "repos/$REPO/merge-upstream" -f branch="$BRANCH")
+          echo "$result"
+          echo "merge_type=$(jq -r .merge_type <<<"$result")" >> "$GITHUB_OUTPUT"
+
+      # Pushes made with GITHUB_TOKEN don't reliably kick off a Pages build,
+      # so ask for one explicitly when the sync brought in new commits.
+      - name: Rebuild GitHub Pages
+        if: steps.sync.outputs.merge_type != 'none'
+        run: |
+          build_type=$(gh api "repos/$REPO/pages" --jq .build_type)
+          if [ "$build_type" = "legacy" ]; then
+            gh api -X POST "repos/$REPO/pages/builds"
+          else
+            echo "Pages build_type is '$build_type'; no branch build to request."
+          fi
