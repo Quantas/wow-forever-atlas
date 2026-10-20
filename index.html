@@ -1208,6 +1208,8 @@ const KOFI_URL = "https://ko-fi.com/fistao";
    If the Tally script is not loaded yet, the link opens the same form in a new tab, with the same fields in its address. */
 const FEEDBACK_FORM = "RGp5WQ";
 const CHANGELOG = [
+  { v: "4.35", d: "October 20, 2026", title: "Addons page: Travelcraft 1.29", items: [
+    ["data", "The Addons page shows what is new in Travelcraft up to 1.29: the first-launch presentation, flight times measured on Forever, routes around guarded towns and the flight masters of the capitals. A small dot on the Addons button points to it until you have seen it."]] },
   { v: "4.34", d: "October 20, 2026", title: "Dalaran portal: one way", items: [
     ["fix", "The Skyborne portal now only goes from Dalaran to Stormwind. On the beta, the one from Stormwind to Dalaran is gone since October 17, so routes no longer use it."]] },
   { v: "4.33", d: "October 19, 2026", title: "Shadowflare: plainer texts", items: [
@@ -1956,13 +1958,13 @@ $("#planCta").onclick=()=>{state.tab="plan";clearMarks();state.sel=null;render()
 /* Count clicks on the addon buttons in GoatCounter (buttons are drawn after the counter loads, so count by hand) */
 // "New in the addon": a thin strip at the top of the map, once per addon version
 // What's new in the addon: a small dot on the Addons button, once per addon version, until the visitor goes there
-(()=>{ const NEWS="shadowflare-0.17", a=document.getElementById("addonCta"); if(!a) return;
+(()=>{ const NEWS="travelcraft-1.29", a=document.getElementById("addonCta"); if(!a) return;
   let seen=null; try{ seen=localStorage.getItem("tc-news") }catch(e){}
   if(seen===NEWS) return;
   const dot=document.createElement("span"); dot.className="cta-dot"; dot.setAttribute("aria-hidden","true"); a.appendChild(dot);
   a.classList.add("has-news");
-  a.setAttribute("title","Shadowflare update: two new procs");
-  a.setAttribute("href",a.getAttribute("href").split("#")[0]+"#shadowflare");
+  a.setAttribute("title","Travelcraft 1.29: what's new");
+  a.setAttribute("href",a.getAttribute("href").split("#")[0]+"#travelcraft-new");
   a.setAttribute("data-gc","addon-header-news");
   a.addEventListener("click",()=>{ try{ localStorage.setItem("tc-news",NEWS) }catch(e){} });
 })();
