@@ -1106,8 +1106,8 @@ const ROUTES = [
   { id: "r-val-sky", kind: "zep", f: "neutral", from: "valanaar", to: "skywatcher", isNew: true, c: "g",
     note: "New in Forever: an airship between Zephras Isle and Skywatcher Plateau, in the north-west of Mulgore, a short walk from Thunder Bluff. Open to both factions, both ways; for the Alliance, it lands on enemy ground. Seen in game. The isle floats in Skywall, so this sky lane is symbolic.",
     via: [[1100, 330], [800, 560], [600, 790]] },
-  { id: "r-dal-sw", kind: "portal", f: "alliance", skyborne: true, from: "dalaran", to: "stormwind", isNew: true, c: "r",
-    note: "New in Forever: the Skyborne portals between the Violet Citadel in Dalaran and the Mage Tower in Stormwind, set up by the Kirin Tor for the High Order. Seen on the beta in both directions. Players report that only Skyborne can use them.",
+  { id: "r-dal-sw", kind: "portal", f: "alliance", skyborne: true, from: "dalaran", to: "stormwind", isNew: true, c: "r", oneway: true,
+    note: "New in Forever: a Skyborne portal from the Violet Citadel in Dalaran to the Mage Tower in Stormwind, set up by the Kirin Tor for the High Order. Players report that only Skyborne can use it. The portal back, from Stormwind to Dalaran, is gone from the beta since October 17. It is not in the patch notes, so it may be a bug.",
     via: [] },
   { id: "r-tram", kind: "tram", f: "alliance", from: "stormwind", to: "ironforge", isNew: false, c: "c", note: "The Deeprun Tram, under the mountains and the sea floor.", via: [] },
 ];
@@ -1208,6 +1208,8 @@ const KOFI_URL = "https://ko-fi.com/fistao";
    If the Tally script is not loaded yet, the link opens the same form in a new tab, with the same fields in its address. */
 const FEEDBACK_FORM = "RGp5WQ";
 const CHANGELOG = [
+  { v: "4.34", d: "October 20, 2026", title: "Dalaran portal: one way", items: [
+    ["fix", "The Skyborne portal now only goes from Dalaran to Stormwind. On the beta, the one from Stormwind to Dalaran is gone since October 17, so routes no longer use it."]] },
   { v: "4.33", d: "October 19, 2026", title: "Shadowflare: plainer texts", items: [
     ["data", "The Shadowflare section of the Addons page is simpler: what the addon does and what you can set, without the slogans. Its screenshots match the new texts."]] },
   { v: "4.32", d: "October 18, 2026", title: "Plainer texts", items: [
