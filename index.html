@@ -1208,6 +1208,8 @@ const KOFI_URL = "https://ko-fi.com/fistao";
    If the Tally script is not loaded yet, the link opens the same form in a new tab, with the same fields in its address. */
 const FEEDBACK_FORM = "RGp5WQ";
 const CHANGELOG = [
+  { v: "4.37", d: "October 20, 2026", title: "Shadowflare: stack looks", items: [
+    ["new", "The Addons page shows Shadowflare's new setting for procs with stacks: dimmer, a fill, dots, or one side then both. A small dot on the Addons button points to it until you have seen it."]] },
   { v: "4.36", d: "October 20, 2026", title: "Shadowflare: 32 procs", items: [
     ["new", "The Addons page shows Shadowflare with 32 procs for the nine classes, plus a weapon and two enchants for every class. A small dot on the Addons button points to it until you have seen it."]] },
   { v: "4.35", d: "October 20, 2026", title: "Addons page: Travelcraft 1.29", items: [
@@ -1960,7 +1962,7 @@ $("#planCta").onclick=()=>{state.tab="plan";clearMarks();state.sel=null;render()
 /* Count clicks on the addon buttons in GoatCounter (buttons are drawn after the counter loads, so count by hand) */
 // "New in the addon": a thin strip at the top of the map, once per addon version
 // What's new in the addon: a small dot on the Addons button, once per addon version, until the visitor goes there
-(()=>{ const NEWS="shadowflare-0.20", a=document.getElementById("addonCta"); if(!a) return;
+(()=>{ const NEWS="shadowflare-0.21", a=document.getElementById("addonCta"); if(!a) return;
   let seen=null; try{ seen=localStorage.getItem("tc-news") }catch(e){}
   if(seen===NEWS) return;
   const dot=document.createElement("span"); dot.className="cta-dot"; dot.setAttribute("aria-hidden","true"); a.appendChild(dot);
