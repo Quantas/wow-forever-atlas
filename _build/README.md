@@ -15,3 +15,5 @@ Il contient l'outil qui fabrique les pages Trajets et Maîtres de vol dans les t
 
 Il faut Python 3 et Playwright (`pip install playwright` puis `playwright install chromium`).
 Textes des pages : `l10n.py`. Ajouter un trajet : une ligne dans `pairs.py`, puis les étapes 1, 3 et 4, et ajouter les nouvelles adresses au sitemap.
+
+Attention (23 octobre) : `extract_fp.py` ne relit que l'anglais, le français et l'espagnol, et sans les champs `lead` et `note`. Le relancer efface l'allemand et les textes des points de vol sans trajet. Pour un petit changement (statut ou texte d'un maître de vol), modifier `fp.json` à la main dans les quatre langues, puis lancer `build.py`.
