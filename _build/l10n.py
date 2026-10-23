@@ -61,7 +61,7 @@ T={
   fp_faq=[('Does WoW Forever change the flight paths?','The Classic network stays, plus six new flight points found in the beta client: three in the Riverglades, two on Mount Hyjal and one in Dun Morogh. They are datamined, not announced by Blizzard, so they may still change.'),
           ('Are there flying mounts in WoW Forever?','No. Flight masters are the only way to fly.'),
           ('Do I need to discover a flight path first?','Yes. You have to reach each flight master once before you can fly to it.')],
-  conf={'Reported':'Reported','To confirm':'To confirm'},
+  conf={'Reported':'Reported','To confirm':'To confirm','Confirmed':'Confirmed'},
 ),
 'fr':dict(lang='fr',locale='fr_FR',home='/fr/',routes='/fr/trajets/',flights='/fr/vols/',guide='/fr/guide.html',addons='/fr/addons/',
   nav=['Carte','Trajets','Maîtres de vol','Guide','Addons'],support='Soutenir',crumb_home='Travelcraft',crumb_routes='Trajets',crumb_flights='Maîtres de vol',
@@ -101,7 +101,7 @@ T={
   fp_faq=[('WoW Forever change-t-il les vols ?',"Le réseau de Classic reste, plus six nouveaux points de vol trouvés dans le client bêta : trois dans Riverglades, deux sur le Mont Hyjal et un à Dun Morogh. Ils viennent du datamining et ne sont pas annoncés par Blizzard : ils peuvent encore changer."),
           ('Y a-t-il des montures volantes dans WoW Forever ?','Non. Les maîtres de vol sont le seul moyen de voler.'),
           ('Faut-il découvrir un point de vol avant de l\'utiliser ?','Oui. Il faut atteindre chaque maître de vol une première fois avant de pouvoir y voler.')],
-  conf={'Reported':'Signalé','To confirm':'À confirmer'},
+  conf={'Reported':'Signalé','To confirm':'À confirmer','Confirmed':'Confirmé'},
 ),
 'es':dict(lang='es',locale='es_ES',home='/es/',routes='/es/rutas/',flights='/es/vuelos/',guide='/es/guide.html',addons='/es/addons/',
   nav=['Mapa','Rutas','Maestros de vuelo','Guía','Addons'],support='Apoyar',crumb_home='Travelcraft',crumb_routes='Rutas',crumb_flights='Maestros de vuelo',
@@ -141,7 +141,7 @@ T={
   fp_faq=[('¿Cambia WoW Forever los vuelos?','Se mantiene la red de Classic, más seis nuevos puntos de vuelo encontrados en el cliente de la beta: tres en Riverglades, dos en el Monte Hyjal y uno en Dun Morogh. Vienen del datamining y Blizzard no los ha anunciado, así que pueden cambiar.'),
           ('¿Hay monturas voladoras en WoW Forever?','No. Los maestros de vuelo son la única forma de volar.'),
           ('¿Hay que descubrir un punto de vuelo antes de usarlo?','Sí. Hay que llegar una vez a cada maestro de vuelo antes de poder volar hasta él.')],
-  conf={'Reported':'Reportado','To confirm':'Por confirmar'},
+  conf={'Reported':'Reportado','To confirm':'Por confirmar','Confirmed':'Confirmado'},
 )}
 
 # ---- dungeons (added for 4.22) ----
@@ -245,7 +245,7 @@ T['de']=dict(lang='de',locale='de_DE',home='/de/',routes='/de/routen/',flights='
   fp_faq=[('Ändert WoW Forever die Flugrouten?','Das Netz aus Classic bleibt, dazu kommen sechs neue Flugpunkte aus dem Beta-Client: drei in Riverglades, zwei in Hyjal und einer in Dun Morogh. Sie stammen aus Datamining und sind nicht von Blizzard angekündigt, sie können sich also noch ändern.'),
           ('Gibt es fliegende Reittiere in WoW Forever?','Nein. Flugmeister sind die einzige Möglichkeit zu fliegen.'),
           ('Muss ich einen Flugpunkt erst entdecken?','Ja. Du musst jeden Flugmeister einmal erreichen, bevor du dorthin fliegen kannst.')],
-  conf={'Reported':'Gemeldet','To confirm':'Unbestätigt'},
+  conf={'Reported':'Gemeldet','To confirm':'Unbestätigt','Confirmed':'Bestätigt'},
 )
 DJT['de']=dict(crumb='Dungeons',h1=lambda n:f"{n} in WoW Forever: Lage und Anreise",title=lambda n:f"{n} in WoW Forever: Lage, Stufe und Anreise",
   desc=lambda n,kind,lv,z:f"Wo liegt {n} in WoW Forever? {kind} für {lv} in {z}. Der schnellste Weg von jeder Hauptstadt der Horde und der Allianz, mit Reisezeit.",

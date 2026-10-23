@@ -209,7 +209,7 @@ for L in LANGS:
                 if m['fl']: inner='<div class="fl">'+''.join(f'<span>{e(n)}<em>{e(tm)}</em></span>' for n,tm in m['fl'])+'</div>'
                 else:
                     lead=m.get('lead') or ''; tag=''
-                    for k in ['Reported','To confirm']:
+                    for k in ['Reported','To confirm','Confirmed']:
                         v=t['conf'][k]
                         if lead.startswith(v+' '): tag=f'<span class="conf">{e(v)}</span>'; lead=lead[len(v)+1:]
                     inner=f'<div class="note">{tag}{e(lead)}</div>'
